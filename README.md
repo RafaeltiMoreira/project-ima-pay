@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 
-<h2 align="center">🚧🚀 Em desenvolvimento 🚀🚧</h2>
+<h2 align="center">🚧🚀 Em desenvolvimento</h2>
 
 <br />
 
@@ -53,7 +53,7 @@ O layout da aplicação está disponível no Netlify:
 
 ## 🚀 Como executar o projeto
 
-### Pré-requisitos
+Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
@@ -86,10 +86,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <br />
 
-## 📫 Contribuindo para <nome_do_projeto>
+## 📫 Contribuindo para project-ima-pay
 
 <!---separado--->
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+Para contribuir com project-ima-pay, siga estas etapas:
 
 1. Bifurque (Fork) este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.

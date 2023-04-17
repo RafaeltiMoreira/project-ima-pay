@@ -1,3 +1,6 @@
+using ImaPay.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ImaPay {
     public class Program {
         public static void Main(string[] args) {
@@ -9,6 +12,12 @@ namespace ImaPay {
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<sharnoContextDb>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("ShanoBank")));
+
+
+         
 
             var app = builder.Build();
 

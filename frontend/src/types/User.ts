@@ -1,8 +1,13 @@
+import { Address } from "./Address";
+
 export type User = {
-    id: number;
-    cpf: string;
-    name: string;
-    celular: string;
-    email: string;
-    password: string;
+    Nome: string;
+    Cpf: string;
+    Email: string;
+    Senha: string;
+    Celular: string;
+    Saldo?: number;
+    Agencia?: string;
+    Conta?: string;
+    Endereco?: Address;
 };

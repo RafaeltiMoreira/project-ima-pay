@@ -1,0 +1,23 @@
+.btn {
+    background: var(--red);
+    color: var(--white);
+    padding: 15px 45px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+    border: 0;
+    cursor: pointer;
+    font-size: 17px;
+}
+  
+.btn:hover {
+    background: var(--btn-hover);
+    color: var(--white);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    background-color: var(--red);
+}
+  

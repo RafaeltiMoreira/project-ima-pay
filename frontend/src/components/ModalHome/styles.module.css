@@ -1,0 +1,109 @@
+.modalInit {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+}
+  
+.modal {
+    background: var(--background-modal);
+    padding: 1.2rem 1.2rem;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
+}
+
+.imgModal {
+    width: 550px;
+}
+
+.logo {
+    width: 140px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.text {
+    margin-top: 30px;
+}
+
+.text h3 {
+    text-align: left;
+    font-size: 32px;
+}
+
+.text p {
+    color: var(--theme);
+    font-size: 20px;
+    font-weight: 500;
+}
+  
+.navItemEnter a {
+    border: 1px solid var(--red);
+    color: var(--theme);
+    padding: 15px 65px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+  
+.navItemEnter a:hover {
+    background: var(--btn-hover);
+    color: var(--white);
+}
+  
+.navItemOpen a {
+    background: var(--red);
+    color: var(--white);
+    padding: 15px 75px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+  
+.navItemOpen a:hover {
+    background: var(--btn-hover);
+    color: var(--white);
+}
+
+.btn {
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--theme);
+    transition: 0.2s;
+    position: relative;
+    left: 1050px;
+    top: 0;
+}
+
+.btn:hover {
+    color: var(--red);
+}
+  

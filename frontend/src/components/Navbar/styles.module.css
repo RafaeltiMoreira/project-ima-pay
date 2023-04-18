@@ -1,0 +1,24 @@
+.logo {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0.1rem 0.5rem var(--ice);
+  }
+  
+  .logo img {
+    animation: fromLeft 1.2s;
+    width: 120px;
+}
+
+@keyframes fromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }

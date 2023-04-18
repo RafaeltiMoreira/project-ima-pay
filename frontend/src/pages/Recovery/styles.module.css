@@ -1,0 +1,57 @@
+.container {
+    max-width: 650px;
+    margin: 50px auto;
+    width: 90%;
+}
+
+form {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0.1rem 0.5rem var(--ice);
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+}
+  
+fieldset {
+    border: none;
+}
+  
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 0;
+}
+  
+label {
+    color: var(--theme);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+  
+.inputWrapper input {
+    background: #fafafc;
+    border: 1px solid #e6e6f0;
+    border-radius: 10px;
+    height: 56px;
+    padding: 0 15px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    color: #4e4958;
+    margin: 10px 0;
+
+}
+
+.send {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 33px;
+    font-size: 1.1rem;
+    background-color: green;
+    margin-bottom: 30px;
+    border-radius: 25px;
+}

@@ -1,0 +1,74 @@
+.navigation {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0.1rem 0.5rem var(--ice);
+  background: var(--background-modal);
+  transition: all 0.5s;
+  position: fixed;
+}
+
+.logo img {
+  width: 88px;
+}
+
+.navigation ul {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.navigation .navItemConta a {
+  background: var(--red);
+  color: var(--white);
+  padding: 15px 45px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.5s;
+}
+
+.navigation .navItemConta a:hover {
+  background: var(--btn-hover);
+  color: var(--white);
+}
+
+.navigation .navItemEntrar a {
+  color: var(--theme);
+  border: 1px solid var(--red);
+  padding: 15px 45px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.5s;
+}
+
+.navigation .navItemEntrar a:hover {
+  background: var(--btn-hover);
+  color: var(--white);
+}
+
+.navigation i {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.menu {
+  cursor: pointer;
+  display: none;
+}
+
+.menu .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--red);
+  margin: 5px auto;
+  transition: all 0.2s;
+}
+
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3) {
+  background: var(--red);
+}

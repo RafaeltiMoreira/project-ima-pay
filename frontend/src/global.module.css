@@ -1,0 +1,25 @@
+:root {
+  --red: #ce1051;
+  --btn-hover: #f03c7b;
+  --white: #fff;
+  --ice: #ccc;
+  --background-modal: #f0f2f5;
+  --dark: #1e1c2a;
+  --theme: #2c053b;
+  --theme-dark: #1b0c2f;
+  --gap: 3rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  color: var(--dark);
+  background: var(--background-modal);
+}

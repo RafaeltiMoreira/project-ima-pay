@@ -1,0 +1,48 @@
+.home {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+  
+.homeText {
+    max-width: 37rem;
+}
+  
+.homeText .textH4 {
+    font-size: 1.5rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+}
+  
+.homeText .textH1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 4rem;
+    color: var(--theme);
+}
+  
+.textH3 {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.3rem 1rem 0 1.5rem;
+    color: var(--theme);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+  
+.homeText p {
+    margin-bottom: 4rem;
+    color: var(--theme);
+    font-weight: 500;
+}
+  
+.homeImg svg {
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+}

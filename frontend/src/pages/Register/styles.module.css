@@ -1,0 +1,98 @@
+.container {
+    margin: 30px auto;
+    width: 90%;
+}
+
+.form {
+    flex-direction: row;
+}
+
+.leftSide {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+.imgArea {
+    display: flex;
+    gap: 50px;
+}
+
+.leftSide img {
+    width: 450px;
+}
+
+label {
+    color: var(--theme);
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    text-align: left !important;
+}
+
+.inputWrapper {
+    margin-bottom: 10px;
+}
+
+.inputWrapper input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #9c9c9c;
+    font-size: 16px;
+    color: #4e4958;
+    width: 400px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.inputWrapper input::placeholder {
+    font-size: 15px;
+}
+
+.success {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 33px;
+    font-size: 1.1rem;
+    background-color: green;
+    margin-bottom: 30px;
+    border-radius: 25px;
+}
+
+.checkbox {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.checkbox input {
+    cursor: pointer;
+    width: 16px;
+    border-radius: 4px;
+}
+
+.checkbox label {
+    margin: 0;
+}
+
+.terms {
+    display: flex;
+    gap: 7px;
+    margin-left: 10px;
+}
+
+.terms span {
+    font-size: 16px;
+}
+
+.btn {
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn:hover {
+    color: var(--theme);
+}
+

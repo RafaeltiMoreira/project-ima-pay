@@ -1,0 +1,10 @@
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+.icon {
+    font-size: 2rem;
+    color: var(--theme);
+    cursor: pointer;
+}

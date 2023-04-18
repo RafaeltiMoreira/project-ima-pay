@@ -13,14 +13,11 @@ namespace ImaPay {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var ConnectionString = builder.Configuration.GetConnectionString("ShanoBank");
-
             builder.Services.AddDbContext<sharnoContextDb>(options =>
-                options.UseMySql(
-                    connectionString: ConnectionString,
-                    serverVersion: ServerVersion.AutoDetect(ConnectionString)
-                )
-            );
+           options.UseSqlServer(builder.Configuration.GetConnectionString("ShanoBank")));
+
+
+         
 
             var app = builder.Build();
 

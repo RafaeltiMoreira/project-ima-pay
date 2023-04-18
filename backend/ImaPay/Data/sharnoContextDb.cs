@@ -15,11 +15,11 @@ namespace ImaPay.Data
         }
 
         
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Usuario> usuarios { get; set; }
 
-        public DbSet<Transacao> Transacaos { get; set; }
+        public DbSet<Transacao> transacaos { get; set; }
 
-        public DbSet<Endereco> Enderecos { get; set; }  
+        public DbSet<Endereco> enderecos { get; set; }  
 
 
     }

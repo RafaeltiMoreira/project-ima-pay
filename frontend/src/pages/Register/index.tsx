@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { ModalTerms } from "../../components/ModalTerms";
 import { User } from "../../types/User";
 import axios from "axios";
+import { apiUrl } from "../../utils/apiUrl";
 
 export function Register() {
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ export function Register() {
       };
 
       try {
-        const response = await axios.post('http://sua-api.com.br/register', newUser);
+        const response = await axios.post(`${apiUrl}/usuario/register`, newUser);
         console.log(response.data);
         navigate("/register/address");
       } catch (error) {

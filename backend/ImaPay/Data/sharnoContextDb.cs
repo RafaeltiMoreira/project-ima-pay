@@ -1,26 +1,18 @@
 ﻿using ImaPay.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ImaPay.Data
+namespace ImaPay.Data;
+
+public class SharnoContextDb : DbContext
 {
-    public class sharnoContextDb: DbContext
+    public DbSet<Usuario> Usuarios { get; set; }
+
+    public DbSet<Transacao> Transacaos { get; set; }
+
+    public DbSet<Endereco> Enderecos { get; set; }
+
+    public SharnoContextDb(DbContextOptions<SharnoContextDb> options) : base(options)
     {
-
-        public sharnoContextDb(DbContextOptions<sharnoContextDb> options): base(options)  { 
-        
-        
-        
-        
-        
-        }
-
-        
-        public DbSet<Usuario> usuarios { get; set; }
-
-        public DbSet<Transacao> transacaos { get; set; }
-
-        public DbSet<Endereco> enderecos { get; set; }  
-
-
     }
 }
+

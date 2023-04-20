@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {}
+    "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {
+    "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+        "projectUniqueName": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
         "projectName": "ImaPay",
-        "projectPath": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
-        "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\obj\\",
+        "projectPath": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+        "packagesPath": "C:\\Users\\denil\\.nuget\\packages\\",
+        "outputPath": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\denil\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,9 +45,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BCrypt-Official": {
+              "target": "Package",
+              "version": "[0.1.109, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.16, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -64,7 +73,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -86,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

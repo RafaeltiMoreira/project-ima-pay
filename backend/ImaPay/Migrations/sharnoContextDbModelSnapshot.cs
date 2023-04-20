@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ImaPay.Migrations
 {
-    [DbContext(typeof(sharnoContextDb))]
+    [DbContext(typeof(SharnoContextDb))]
     partial class sharnoContextDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

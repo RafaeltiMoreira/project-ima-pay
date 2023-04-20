@@ -23,6 +23,13 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPost]
+    [Route("register")]
+    public IActionResult Register([FromBody] Usuario usuario)
+    {
+        return Ok();
+    }
+
+    [HttpPost]
     [Route("login")]
     public IActionResult Login([FromBody] UsuarioLoginDTO login)
     {

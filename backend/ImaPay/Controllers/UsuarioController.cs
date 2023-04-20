@@ -1,13 +1,8 @@
 ﻿using ImaPay.Data;
 using ImaPay.Entity.Dtos;
-using ImaPay.Entity.Models;
 using ImaPay.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Security.Claims;
-using System.Text;
 
 namespace ImaPay.Controllers;
 
@@ -42,29 +37,8 @@ public class UsuarioController : ControllerBase
 
         if (senhaIncorreta) return mensagemDeErro;
 
-        var token = GerarToken(usuario);
+        var token = ConfigurarToken.GerarToken(usuario);
 
         return Ok(new { token });
-    }
-
-    private string GerarToken(Usuario usuario)
-    {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var tokenKey = Encoding.UTF8.GetBytes(TokenSettings.SecretKey);
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-            new Claim(ClaimTypes.NameIdentifier, usuario.Id),
-            new Claim(ClaimTypes.Email, usuario.Email)
-            }),
-            Expires = DateTime.UtcNow.AddHours(10),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
-        };
-
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        return tokenHandler.WriteToken(token);
     }
 }

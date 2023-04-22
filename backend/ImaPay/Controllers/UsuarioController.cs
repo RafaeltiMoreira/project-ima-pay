@@ -1,9 +1,13 @@
 ﻿using ImaPay.Data;
 using ImaPay.Entity.Dtos;
+using ImaPay.Entity.Models;
 using ImaPay.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using ImaPay.Entity.Models;
+using System.Security.Claims;
+using System.Text;
 
 namespace ImaPay.Controllers;
 
@@ -45,10 +49,11 @@ public class UsuarioController : ControllerBase
 
         if (senhaIncorreta) return mensagemDeErro;
 
-        var token = ConfigurarToken.GerarToken(usuario);
+        var token = GerarToken(usuario);
 
         return Ok(new { token });
     }
+
 
     //Não consegui pegar o Token, mas sei que usa o TokenHandler.ReadToken pra transformar de voltar num usuario.
     
@@ -58,6 +63,5 @@ public class UsuarioController : ControllerBase
 
         var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Nome == usuarioLogado.Nome);
         return Ok(new { usuario });
-
     }
 }

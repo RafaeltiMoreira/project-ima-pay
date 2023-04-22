@@ -9,17 +9,9 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ImaPay
 build_property.RootNamespace = ImaPay
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\rafa_\OneDrive\Documentos\project-ima-pay\backend\ImaPay\
-build_property.RazorLangVersion = 6.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\rafa_\OneDrive\Documentos\project-ima-pay\backend\ImaPay
-=======
 build_property.ProjectDir = D:\HakaDev\project-ima-pay\backend\ImaPay\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\HakaDev\project-ima-pay\backend\ImaPay
->>>>>>> 56c687c8d1d0634ec1d56075c6b92a709da10c8a
 build_property._RazorSourceGeneratorDebug = 

@@ -72,10 +72,6 @@ label {
     border-radius: 4px;
 }
 
-.checkbox label {
-    margin: 0;
-}
-
 .terms {
     display: flex;
     gap: 7px;
@@ -95,4 +91,5 @@ label {
 .btn:hover {
     color: var(--theme);
 }
+
 

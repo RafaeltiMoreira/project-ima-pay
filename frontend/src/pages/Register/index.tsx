@@ -184,7 +184,7 @@ export function Register() {
               </div>
             </div>
             <ModalTerms isOpen={isModalOpen} closeModal={() => {setIsModalOpen(!isModalOpen)}}/>
-            <Button size="400" action={handleSubmit} txt="Próximo" />
+            <Button size="300" action={handleSubmit} txt="Próximo" />
           </div>
         </form>
       </div>

@@ -2,9 +2,9 @@
 using ImaPay.Entity.Dtos;
 using ImaPay.Entity.Models;
 using ImaPay.Helpers;
+using ImaPay.Validador;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
@@ -24,9 +24,30 @@ public class UsuarioController : ControllerBase
 
     [HttpPost]
     [Route("register")]
-    public IActionResult Register([FromBody] Usuario usuario)
+    public IActionResult Register([FromBody] CadastroUsuarioDTO cadastroUsuario)
     {
-        return Ok();
+        try
+        {
+            var novoUsuario = new Usuario
+            {
+                Nome = cadastroUsuario.Nome,
+                CPF = cadastroUsuario.CPF,
+                Email = cadastroUsuario.Email,
+                Senha = cadastroUsuario.Senha,
+                Celular = cadastroUsuario.Celular
+            };
+            _context.Usuarios.Add(novoUsuario);
+            _context.SaveChanges();
+            return Ok(novoUsuario);
+        }
+        catch (DbUpdateException ex)
+        {
+            return BadRequest("Erro ao cadastrar usuário: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest("Erro ao cadastrar usuário: " + ex.Message);
+        }
     }
 
     [HttpPost]
@@ -49,7 +70,7 @@ public class UsuarioController : ControllerBase
 
         if (senhaIncorreta) return mensagemDeErro;
 
-        var token = GerarToken(usuario);
+        var token = ConfigurarToken.GerarToken(usuario);
 
         return Ok(new { token });
     }

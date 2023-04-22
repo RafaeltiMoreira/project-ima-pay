@@ -16,7 +16,8 @@ public class Usuario : IdentityUser
     public string Email { get; set; }
     [Required]
     public string Senha { get; set; }
-    public decimal Saldo { get; set; }
+    public string Celular { get; set; }
+    public double Saldo { get; set; }
     public string Agencia { get; set; }
     public string Conta { get; set; }
     public List<Transacao> Transacoes { get; set; }

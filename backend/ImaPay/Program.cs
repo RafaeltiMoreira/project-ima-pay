@@ -28,7 +28,7 @@ namespace ImaPay
             });
 
             builder.Services.AddDbContext<SharnoContextDb>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SharnoBank")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ShanoBank")));
 
             builder.Services.AddIdentity<Usuario, IdentityRole>(options => {
                 options.User.RequireUniqueEmail = true;

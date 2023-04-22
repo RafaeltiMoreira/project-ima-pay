@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay.Migrations
 {
     [DbContext(typeof(SharnoContextDb))]
-    [Migration("20230417012504_IniciandoProjeto2")]
-    partial class IniciandoProjeto2
+    [Migration("20230422223234_bancodados1")]
+    partial class bancodados1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,10 +45,6 @@ namespace ImaPay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Complemento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,7 +59,7 @@ namespace ImaPay.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("enderecos");
+                    b.ToTable("Enderecos");
                 });
 
             modelBuilder.Entity("ImaPay.Entity.Models.Transacao", b =>
@@ -83,29 +79,43 @@ namespace ImaPay.Migrations
                     b.Property<int>("RemetenteId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("UsuarioID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioID");
 
-                    b.ToTable("transacaos");
+                    b.ToTable("Transacoes");
                 });
 
             modelBuilder.Entity("ImaPay.Entity.Models.Usuario", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Agencia")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Conta")
@@ -116,32 +126,69 @@ namespace ImaPay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EnderecoId")
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("EnderecoID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Saldo")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Saldo")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("EnderecoId");
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("usuarios");
+                    b.HasKey("ID");
+
+                    b.HasIndex("EnderecoID")
+                        .IsUnique();
+
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("ImaPay.Entity.Models.Transacao", b =>
                 {
                     b.HasOne("ImaPay.Entity.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .WithMany("Transacoes")
+                        .HasForeignKey("UsuarioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -151,12 +198,23 @@ namespace ImaPay.Migrations
             modelBuilder.Entity("ImaPay.Entity.Models.Usuario", b =>
                 {
                     b.HasOne("ImaPay.Entity.Models.Endereco", "Endereco")
-                        .WithMany()
-                        .HasForeignKey("EnderecoId")
+                        .WithOne("Usuario")
+                        .HasForeignKey("ImaPay.Entity.Models.Usuario", "EnderecoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Endereco");
+                });
+
+            modelBuilder.Entity("ImaPay.Entity.Models.Endereco", b =>
+                {
+                    b.Navigation("Usuario")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ImaPay.Entity.Models.Usuario", b =>
+                {
+                    b.Navigation("Transacoes");
                 });
 #pragma warning restore 612, 618
         }

@@ -19,6 +19,5 @@ public class Endereco
     public string Rua { get; set; }
     [Required]
     public string Numero { get; set; }
-    public string Complemento { get; set; }
     public Usuario Usuario { get; set; }
 }

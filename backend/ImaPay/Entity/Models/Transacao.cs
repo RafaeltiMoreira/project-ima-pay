@@ -12,7 +12,7 @@ public class Transacao
     [Required]
     public int DestinatarioId { get; set; }
     [Required]
-    public decimal Valor { get; set; }
+    public double Valor { get; set; }
     public DateTime Data { get; set; } = DateTime.Now;
     public Usuario Usuario { get; set; }
 }

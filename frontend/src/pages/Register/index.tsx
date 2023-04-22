@@ -22,7 +22,6 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [registerError, setRegisterError] = useState(false);
-  const [idCounter, setIdCounter] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -76,7 +75,6 @@ export function Register() {
 
     if (isValid && isChecked) {
       const newUser: User = {
-        Nome: name,
         Cpf: cpf,
         Email: email,
         Senha: password,
@@ -84,7 +82,7 @@ export function Register() {
       };
 
       try {
-        const response = await axios.post(`${apiUrl}/usuario/register`, newUser);
+        const response = await axios.post(`${apiUrl}/usuarios/register`, newUser);
         console.log(response.data);
         navigate("/register/address");
       } catch (error) {

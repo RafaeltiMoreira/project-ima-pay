@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mcj2lHfOzrWDG8mocr0TiwXvQpty2wSq4B2tJAkOjf9meuRXW+FHZTmq4XnouWCTBTC6kWAI9P2xccNwP8kyzw==",
+  "dgSpecHash": "DRtWQbKYDZYJFZJCdYPa0gv/Ef4+48PA4ydWkLluM8J2r7Rd58TBLueLNGBKBMnatdsMkgatVgGn+SGuBwHgCQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "C:\\Users\\rafa_\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\rafa_\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\rafa_\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\rafa_\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\rafa_\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\rafa_\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\rafa_\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\rafa_\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

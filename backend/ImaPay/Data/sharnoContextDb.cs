@@ -7,7 +7,7 @@ public class SharnoContextDb : DbContext
 {
     public DbSet<Usuario> Usuarios { get; set; }
 
-    public DbSet<Transacao> Transacaos { get; set; }
+    public DbSet<Transacao> Transacoes { get; set; }
 
     public DbSet<Endereco> Enderecos { get; set; }
 

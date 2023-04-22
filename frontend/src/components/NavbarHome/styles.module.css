@@ -1,17 +1,17 @@
 .navigation {
   width: 100%;
-  height: 90px;
+  height: 8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   box-shadow: 0 0.1rem 0.5rem var(--ice);
-  background: var(--background-modal);
+  background: var(--white);
   transition: all 0.5s;
   position: fixed;
 }
 
 .logo img {
-  width: 88px;
+  height: 8rem;
 }
 
 .navigation ul {

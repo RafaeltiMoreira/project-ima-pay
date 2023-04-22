@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ImaPay.Migrations
 {
-    [DbContext(typeof(sharnoContextDb))]
+    [DbContext(typeof(SharnoContextDb))]
     [Migration("20230417011044_IniciandoProjeto")]
     partial class IniciandoProjeto
     {

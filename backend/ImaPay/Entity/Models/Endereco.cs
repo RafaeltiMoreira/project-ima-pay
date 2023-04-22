@@ -1,14 +1,24 @@
-﻿namespace ImaPay.Entity.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ImaPay.Entity.Models;
+
+public class Endereco
 {
-    public class Endereco
-    {
-        public int Id { get; set; } 
-        public string Rua { get; set; }
-        public string Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string Cep { get; set; }
-    }
+    [Key]
+    [Required]
+    public int Id { get; set; }
+    [Required]
+    public string Cep { get; set; }
+    [Required]
+    public string Estado { get; set; }
+    [Required]
+    public string Cidade { get; set; }
+    [Required]
+    public string Bairro { get; set; }
+    [Required]
+    public string Rua { get; set; }
+    [Required]
+    public string Numero { get; set; }
+    public string Complemento { get; set; }
+    public Usuario Usuario { get; set; }
 }

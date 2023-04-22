@@ -1,13 +1,19 @@
-import { useContext } from "react";
-import { TransfersContextPix } from "../../contexts/TransfersContextPix";
-import { TransfersContextDp } from "../../contexts/TransfersContextDp";
 import { TableContainer, TableContent, ValueTransfers } from "./styles";
-import { MdPix } from "react-icons/md"
 import { dateFormatter, valueFormatter } from "../../utils/formatter";
+import { TransfersContextDp, TransfersContextPix } from "../../contexts/TransfersContextPixDp";
+import { useContextSelector } from "use-context-selector"
 
 export function TableTransfers() {
-    const { transferspix } = useContext(TransfersContextPix);
-    const { transfersdp } = useContext(TransfersContextDp);
+
+    const transfersdp = useContextSelector(TransfersContextDp, (context) => {
+        return context.transfersdp
+    });
+
+    const transferspix = useContextSelector(TransfersContextPix, (context) => {
+        return context.transferspix
+    });
+
+    const transfersList = [...transferspix, ...transfersdp];
 
     return (
         <div>
@@ -15,35 +21,18 @@ export function TableTransfers() {
             <TableContainer>
                 <TableContent>
                     <tbody>
-                        {transferspix.map(transfers => {
+                        {transfersList.map(transfers => {
                             return (
                                 <tr key={transfers.id}>
-                                    <td width="30%">{transfers.description}</td>
+                                    <td width="40%">{transfers.description}</td>
                                     <td>
                                         <ValueTransfers variant={transfers.type}>
                                             {transfers.type === "output" && "- "}
-                                            {valueFormatter(transfers.value)}
+                                            {valueFormatter(transfers.price)}
                                         </ValueTransfers>
                                     </td>
                                     <td>{transfers.category}</td>
                                     <td>{dateFormatter.format(new Date(transfers.createdAt))}</td>
-                                    <td><MdPix size={32} /></td>
-                                </tr>
-                            )
-                        })}
-                        {transfersdp.map(transfersdp => {
-                            return (
-                                <tr key={transfersdp.id}>
-                                    <td width="30%">{transfersdp.description}</td>
-                                    <td>
-                                        <ValueTransfers variant={transfersdp.type}>
-                                            {transfersdp.type === "output" && "- "}
-                                            {valueFormatter(transfersdp.value)}
-                                        </ValueTransfers>
-                                    </td>
-                                    <td>{transfersdp.category}</td>
-                                    <td>{dateFormatter.format(new Date(transfersdp.createdAt))}</td>
-                                    <td><MdPix size={32} /></td>
                                 </tr>
                             )
                         })}

@@ -1,5 +1,4 @@
 import { NavbarHome } from "../../components/NavbarHome";
-import BusinessImg from '../../assets/business-ima.svg';
 import AnimeImg from "../../assets/business-animate.svg";
 import styles from './styles.module.css';
 import { Button } from "../../components/Button";

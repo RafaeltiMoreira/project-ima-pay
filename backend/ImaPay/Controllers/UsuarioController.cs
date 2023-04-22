@@ -49,4 +49,15 @@ public class UsuarioController : ControllerBase
 
         return Ok(new { token });
     }
+
+    //Não consegui pegar o Token, mas sei que usa o TokenHandler.ReadToken pra transformar de voltar num usuario.
+    
+    [HttpPost]
+    [Route("usuarioLogado.Nome")]
+    public IActionResult Loged([FromBody] UsuarioLogadoDTO usuarioLogado ) {
+
+        var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Nome == usuarioLogado.Nome);
+        return Ok(new { usuario });
+
+    }
 }

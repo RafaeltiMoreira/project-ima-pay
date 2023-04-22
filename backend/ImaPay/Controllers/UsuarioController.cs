@@ -54,27 +54,7 @@ public class UsuarioController : ControllerBase
         return Ok(new { token });
     }
 
-<<<<<<< HEAD
-    private string GerarToken(Usuario usuario)
-    {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var tokenKey = Encoding.UTF8.GetBytes(TokenSettings.SecretKey);
 
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-            new Claim(ClaimTypes.NameIdentifier, usuario.Id),
-            new Claim(ClaimTypes.Email, usuario.Email)
-            }),
-            Expires = DateTime.UtcNow.AddHours(10),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
-        };
-
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        return tokenHandler.WriteToken(token);
-=======
     //Não consegui pegar o Token, mas sei que usa o TokenHandler.ReadToken pra transformar de voltar num usuario.
     
     [HttpPost]
@@ -83,7 +63,5 @@ public class UsuarioController : ControllerBase
 
         var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Nome == usuarioLogado.Nome);
         return Ok(new { usuario });
-
->>>>>>> 56c687c8d1d0634ec1d56075c6b92a709da10c8a
     }
 }

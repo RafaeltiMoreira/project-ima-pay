@@ -3242,23 +3242,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moise\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\math7\\.nuget\\packages\\": {},
+    "A:\\Vs\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+      "projectUniqueName": "D:\\HakaDev\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
       "projectName": "ImaPay",
-      "projectPath": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
-      "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moise\\source\\repos\\project-ima-pay\\backend\\ImaPay\\obj\\",
+      "projectPath": "D:\\HakaDev\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+      "packagesPath": "C:\\Users\\math7\\.nuget\\packages\\",
+      "outputPath": "D:\\HakaDev\\project-ima-pay\\backend\\ImaPay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "A:\\Vs\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\math7\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3267,6 +3267,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3327,7 +3328,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

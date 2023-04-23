@@ -10,17 +10,6 @@ public class ConfigurarToken
 {
     public static byte[] SecretKey = GenerateSecretKey();
 
-    private static byte[] GenerateSecretKey()
-    {
-        const int keySize = 256;
-
-        using var randomNumberGenerator = new RNGCryptoServiceProvider();
-        var key = new byte[keySize / 8];
-        randomNumberGenerator.GetBytes(key);
-
-        return key;
-    }
-
     public static string GerarToken(Usuario usuario)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -35,12 +24,21 @@ public class ConfigurarToken
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddHours(10),
+            Expires = DateTime.UtcNow.AddDays(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
         };
 
-        var token = tokenHandler.CreateToken(tokenDescriptor);
+        var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
 
-        return tokenHandler.WriteToken(token);
+        return token;
+    }
+
+    private static byte[] GenerateSecretKey()
+    {
+        using var randomNumberGenerator = new RNGCryptoServiceProvider();
+        var key = new byte[256];
+        randomNumberGenerator.GetBytes(key);
+
+        return key;
     }
 }

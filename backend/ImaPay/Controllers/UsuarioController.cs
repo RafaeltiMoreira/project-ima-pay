@@ -1,9 +1,12 @@
-﻿using ImaPay.Data;
+﻿using AutoMapper;
+using ImaPay.Data;
 using ImaPay.Entity.Dtos;
 using ImaPay.Entity.Models;
 using ImaPay.Helpers;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
@@ -16,24 +19,41 @@ namespace ImaPay.Controllers;
 public class UsuarioController : ControllerBase
 {
     private SharnoContextDb _context;
+    private IMapper _mapper;
+    private UserManager<Usuario> _userManager;
 
-    public UsuarioController(SharnoContextDb context)
+    public UsuarioController(SharnoContextDb context, IMapper mapper, UserManager<Usuario> userManager)
     {
         _context = context;
+        _mapper = mapper;
+        _userManager = userManager;
     }
 
+    [AllowAnonymous]
     [HttpPost]
     [Route("register")]
-    public IActionResult Register([FromBody] Usuario usuario)
+    public async Task<IActionResult> Register([FromBody] UsuarioRegistroDTO register)
     {
-        return Ok();
+        var usuario = _mapper.Map<Usuario>(register);
+
+        IdentityResult resultado = await _userManager.CreateAsync(usuario, register.Password);
+
+        if (resultado.Succeeded)
+        {
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+            return Ok("Usuário cadastrado!");
+        }
+
+        throw new ApplicationException("Falha ao cadastrar usuario!");
     }
 
+    [AllowAnonymous]
     [HttpPost]
     [Route("login")]
-    public IActionResult Login([FromBody] UsuarioLoginDTO login)
+    public async Task<IActionResult> Login([FromBody] UsuarioLoginDTO login)
     {
-        var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.CPF == login.CPF);
+        var usuario = await _context.Usuarios.FirstOrDefaultAsync(usuario => usuario.CPF == login.CPF);
         var usuarioNaoCadastrado = (usuario == null);
         var mensagemDeErro = StatusCode(
             statusCode: (int)HttpStatusCode.BadRequest,
@@ -57,7 +77,7 @@ public class UsuarioController : ControllerBase
     [Authorize]
     [HttpGet]
     [Route("info-usuario")]
-    public IActionResult GetInformacaoUsuario() 
+    public async Task<IActionResult> GetInformacaoUsuario() 
     {
         var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
@@ -75,7 +95,7 @@ public class UsuarioController : ControllerBase
 
             var tokenUsuarioId = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id.ToString() == tokenUsuarioId);
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(usuario => usuario.Id.ToString() == tokenUsuarioId);
 
             return Ok(usuario);
         }

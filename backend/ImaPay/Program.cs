@@ -72,11 +72,6 @@ namespace ImaPay
 
             builder.Services.AddAutoMapper
                 (AppDomain.CurrentDomain.GetAssemblies());
-
-           
-
-            
-
             
         }
     }

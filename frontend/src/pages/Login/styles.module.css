@@ -24,7 +24,7 @@
 }
 
 .inputWrapper.inputPass {
-  margin-bottom: 22px;
+  margin-bottom: 60px;
 }
 
 label {
@@ -90,7 +90,7 @@ legend {
   left: 290px;
   width: 30px;*/
   position: fixed;
-  bottom: 482px;
+  bottom: 495px;
   left: 172px;
   width: 100%;
 }

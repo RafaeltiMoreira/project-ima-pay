@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: ${(props) => props.theme.colors.white};
-        color: ${(props) => props.theme.colors["--theme"]};
+        background: #fff;
+        color: #2c053b;
         -webkit-font-smoothing: antialiased;
     }
 

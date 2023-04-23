@@ -34,7 +34,7 @@ export function Register() {
 
   const isEmailValid = validateEmail.test(email);
   const isPasswordValid = validatePassword.test(password);
-                                      
+
   const inputValid = () => {
     if (!isFormValid) {
       setRegisterError(true);
@@ -91,7 +91,7 @@ export function Register() {
         console.error(error);
       }
 
-    } else if(!isChecked && isFormFilled) {
+    } else if (!isChecked && isFormFilled) {
       setRegisterError(true);
       setErrorMessage("Por favor, concorde com os termos");
       setTimeout(() => {
@@ -104,7 +104,7 @@ export function Register() {
   return (
     <>
       <div className={styles.container}>
-        <form className={styles.form} id="form">
+        <form className={styles.formRegister} id="form">
           <div className={styles.leftSide}>
             <div className={styles.imgArea}>
               <ArrowIcon />
@@ -169,20 +169,20 @@ export function Register() {
               />
             </div>
             <div className={styles.checkbox}>
-              <input 
-                type="checkbox" 
-                id="checkbox1" 
-                checked={isChecked} 
+              <input
+                type="checkbox"
+                id="checkbox1"
+                checked={isChecked}
                 onChange={e => setIsChecked(e.target.checked)}
               />
               <div className={styles.terms}>
                 <span>Li e concordo com os</span>
                 <button type="button" onClick={() => setIsModalOpen(true)} className={styles.btn}>
-                   Termos de Serviço
+                  Termos de Serviço
                 </button>
               </div>
             </div>
-            <ModalTerms isOpen={isModalOpen} closeModal={() => {setIsModalOpen(!isModalOpen)}}/>
+            <ModalTerms isOpen={isModalOpen} closeModal={() => { setIsModalOpen(!isModalOpen) }} />
             <Button size="300" action={handleSubmit} txt="Próximo" />
           </div>
         </form>

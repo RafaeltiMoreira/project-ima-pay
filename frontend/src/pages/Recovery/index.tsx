@@ -31,7 +31,7 @@ export function Recovery() {
           setEmail("");
         }, 1000)
         return true;
-      } 
+      }
 
       if (email !== user.email) {
         setEmailErr(true);
@@ -55,8 +55,8 @@ export function Recovery() {
     <>
       <Navbar />
       <div className={styles.container}>
-        <form>
-          {emailSend && 
+        <form className="form-recovery">
+          {emailSend &&
             <div className={styles.send}>Email Enviado</div>
           }
           <div>

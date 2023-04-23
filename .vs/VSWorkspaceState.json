@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\backend\\ImaPay",
+    "\\backend\\ImaPay\\Controllers",
+    "\\backend\\ImaPay\\Data",
+    "\\backend\\ImaPay\\Entity",
+    "\\backend\\ImaPay\\Entity\\Dtos",
+    "\\backend\\ImaPay\\Entity\\Models",
+    "\\backend\\ImaPay\\Profiles"
   ],
-  "SelectedNode": "\\ImaPay.sln",
+  "SelectedNode": "\\backend\\ImaPay\\Controllers\\UsuarioController.cs",
   "PreviewInSolutionExplorer": false
 }

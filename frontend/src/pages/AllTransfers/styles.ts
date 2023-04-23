@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 
-export const TransfersContainer = styled.section`
+export const AllTransfersContainer = styled.section`
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 5rem 1.5rem;
+  padding: 2rem 1.5rem;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -15,8 +15,8 @@ interface TransfersCardsProps {
   variant?: "green";
 }
 
-export const TransfersCards = styled.div<TransfersCardsProps>`
-  background: ${({ theme }) => theme.colors.ice};
+export const AllTransfersCards = styled.div<TransfersCardsProps>`
+  background: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
   padding: 1.2rem;
 
@@ -27,7 +27,8 @@ export const TransfersCards = styled.div<TransfersCardsProps>`
     color: ${({ theme }) => theme.colors["roxo-ima-900"]};
   }
 
-  legend {
+  .legend-amount {
+    display: flex;
     font-weight: bold;
     color: ${({ theme }) => theme.colors["roxo-ima-900"]};
   }
@@ -41,6 +42,10 @@ export const TransfersCards = styled.div<TransfersCardsProps>`
     margin-top: 1rem;
     font-size: 1.5rem;
     color: ${({ theme }) => theme.colors["roxo-ima-900"]};
+  }
+
+  .text-exit {
+    color: ${({ theme }) => theme.colors["ima-900"]};
   }
 
   a {

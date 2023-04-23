@@ -39,8 +39,7 @@ export function ModalHome({ isOpen, closeModal }: Props) {
           <div className={styles.text}>
             <h3>Crie uma conta em minutos.</h3>
             <p>
-              Com a Imã Pay, você pode criar sua conta em minutos. Não é
-              necessário visitar uma agência ou esperar dias.
+              Vem para Imã Pay e controle seus gastos em qualquer lugar, sem burocracia, não é necessário visitar uma agência ou esperar dias.
             </p>
           </div>
         </div>

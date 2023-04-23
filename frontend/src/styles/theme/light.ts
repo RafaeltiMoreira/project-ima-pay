@@ -1,8 +1,22 @@
+import { darken, transparentize } from "polished";
+
 export const lightTheme = {
   colors: {
     white: "#fff",
 
     ice: "#ccc",
+
+    linear:
+      "linear-gradient(346deg, rgba(239,220,246,1) 0%, rgba(44,5,59,1) 100%)",
+
+    radial:
+      "radial-gradient(circle, rgba(239,220,246,1) 0%, rgba(44,5,59,1) 100%)",
+
+    "linear-ima":
+      "linear-gradient(346deg, rgba(206,16,81,1) 0%, rgba(249,219,229,1) 30%)",
+
+    "linear-gray":
+      "linear-gradient(560deg, rgba(255,255,255,1) 0%, rgba(225,225,230,1) 100%)",
 
     "gray-100": "#E1E1E6",
     "gray-300": "#C4C4CC",
@@ -20,6 +34,7 @@ export const lightTheme = {
     "red-300": "#F75A68",
     "red-500": "#AB222E",
     "red-700": "#7A1921",
+    "red-900": "rgb(240 13 33)",
 
     "ima-100": "#f9dbe5",
     "ima-300": "#f4bcd0",
@@ -56,5 +71,6 @@ export const lightTheme = {
     "--theme-dark": "#1b0c2f",
     "base-background": "#FAFAFA",
     "modal-rgba": "rgba(0, 0, 0, 0.9)",
+    transparent: `${transparentize(0.8, "#2c053b")}`,
   },
 } as const;

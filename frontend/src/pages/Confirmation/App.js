@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import "./App.css";
 import logo from "./assets/logo.webp";
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -54,3 +54,4 @@ const App = () => {
 };
 
 export default App;
+*/

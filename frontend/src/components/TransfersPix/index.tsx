@@ -1,34 +1,33 @@
-import * as Dialog from "@radix-ui/react-dialog";
 import {
-    Close,
-    Content,
+    ContentPix,
     Overlay,
-    Title,
-    TransfersValuePi,
-    TransfersValueButtonPi,
+    TransfersValueButtonPix,
+    TransfersValuePix,
 } from "./styles";
 import { MdOutlinePayments, MdPix } from "react-icons/md";
-import { X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useContext } from "react";
-import { TransfersContextPix } from "../../contexts/TransfersContextPix";
+import { useContextSelector } from "use-context-selector"
+import { TransfersContextPix } from "../../contexts/TransfersContextPixDp";
+import * as Dialog from '@radix-ui/react-dialog'
+import { CloseButton, LegendTitle } from "../TransfersDp/styles";
 
 const newTransfersFormSchema = z.object({
     pix: z.string(),
-    value: z.number(),
+    price: z.number(),
     description: z.string(),
     category: z.string(),
     type: z.enum(["input", "output"]),
     password: z.string(),
-    query: z.string()
 });
 
 type NewTransfersFormInputs = z.infer<typeof newTransfersFormSchema>;
 
-export function ModalTransfersPix() {
-    const { createTransfersPix } = useContext(TransfersContextPix)
+export function TransfersPix() {
+    const createTransfersPix = useContextSelector(TransfersContextPix, (context) => {
+        return context.createTransfersPix
+    });
 
     const {
         control,
@@ -38,22 +37,19 @@ export function ModalTransfersPix() {
         reset,
     } = useForm<NewTransfersFormInputs>({
         resolver: zodResolver(newTransfersFormSchema),
-        defaultValues: {
-            type: "input"
-        }
     });
 
     async function handleCreateNewTransfers(data: NewTransfersFormInputs) {
-        const { pix, value, description, category, type, password } = data;
+        const { pix, price, description, category, type, password } = data;
 
         await createTransfersPix({
             pix,
-            value,
+            price,
             description,
             category,
             type,
-            password
-        })
+            password,
+        });
 
         reset();
     }
@@ -61,40 +57,52 @@ export function ModalTransfersPix() {
     return (
         <Dialog.Portal>
             <Overlay />
-            <Content>
-                <Title>
+
+            <ContentPix>
+                <LegendTitle>
                     PIX
                     <MdPix size={32} />
-                </Title>
+                </LegendTitle>
+
+                <CloseButton>
+                    Fechar
+                </CloseButton>
 
                 <form onSubmit={handleSubmit(handleCreateNewTransfers)}>
                     <input
+                        className="input-pix"
                         type="text"
                         placeholder="Chave PIX"
                         required
                         {...register("pix")}
                     />
                     <input
-                        type="value"
+                        className="input-valor"
+                        type="number"
                         placeholder="Valor R$"
                         required
-                        {...register("value")}
+                        {...register("price", { valueAsNumber: true })}
                     />
                     <input
+                        className="input-desc"
                         type="text"
                         placeholder="Descrição"
                         required
                         {...register("description")}
                     />
                     <input
+                        className="input-cat"
                         type="text"
                         placeholder="Categoria"
+                        autoComplete="true"
                         required
                         {...register("category")}
                     />
                     <input
+                        className="input-senha"
                         type="password"
                         placeholder="Digite sua senha"
+                        autoComplete="current-password"
                         required
                         {...register("password")}
                     />
@@ -104,30 +112,25 @@ export function ModalTransfersPix() {
                         name="type"
                         render={({ field }) => {
                             return (
-                                <TransfersValuePi onValueChange={field.onChange} value={field.value}>
-                                    <TransfersValueButtonPi variant="input" value="input">
-                                        <MdOutlinePayments size={24} />
+                                <TransfersValuePix onValueChange={field.onChange} value={field.value}>
+                                    <TransfersValueButtonPix variant="input" value="input">
+                                        <MdOutlinePayments size={26} />
                                         Receber
-                                    </TransfersValueButtonPi>
+                                    </TransfersValueButtonPix>
 
-                                    <TransfersValueButtonPi variant="output" value="output">
-                                        <MdOutlinePayments size={24} />
-                                        Transferir
-                                    </TransfersValueButtonPi>
-                                </TransfersValuePi>
+                                    <TransfersValueButtonPix variant="output" value="output">
+                                        <MdOutlinePayments size={26} />
+                                        Pagar
+                                    </TransfersValueButtonPix>
+                                </TransfersValuePix>
                             );
                         }}
                     />
-
-                    <button type="submit" disabled={isSubmitting}>
-                        Enviar
+                    <button type="submit" title="Confirmar" disabled={isSubmitting}>
+                        Confirmar
                     </button>
                 </form>
-
-                <Close>
-                    <X size={24} />
-                </Close>
-            </Content>
+            </ContentPix>
         </Dialog.Portal>
     );
 }

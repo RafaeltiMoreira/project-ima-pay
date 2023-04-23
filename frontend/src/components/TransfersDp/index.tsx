@@ -1,37 +1,38 @@
-import * as Dialog from "@radix-ui/react-dialog";
 import {
-    Close,
-    Content,
+    CloseButton,
+    ContentDp,
+    LegendTitle,
     Overlay,
-    Title,
     TransfersValueButtonDp,
     TransfersValueDp,
 } from "./styles";
-import { Bank, X } from "phosphor-react";
+import { ArrowsLeftRight, Wallet } from "phosphor-react";
 import { MdOutlinePayments } from "react-icons/md";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { TransfersContextDp } from "../../contexts/TransfersContextDp";
-import { useContext } from "react";
+import * as Dialog from '@radix-ui/react-dialog'
+import { useContextSelector } from "use-context-selector"
+import { TransfersContextDp } from "../../contexts/TransfersContextPixDp";
 
 const newTransfersDpFormSchema = z.object({
     name: z.string(),
     cpf: z.string(),
     agency: z.string(),
     account: z.string(),
-    value: z.number(),
+    price: z.number(),
     description: z.string(),
     category: z.string(),
     type: z.enum(["input", "output"]),
     password: z.string(),
-    query: z.string()
 });
 
 type NewTransfersDpFormInputs = z.infer<typeof newTransfersDpFormSchema>;
 
-export function ModalTransfersDeposit() {
-    const { createTransfersDp } = useContext(TransfersContextDp)
+export function TransfersDp() {
+    const createTransfersDp = useContextSelector(TransfersContextDp, (context) => {
+        return context.createTransfersDp
+    });
 
     const {
         control,
@@ -41,25 +42,32 @@ export function ModalTransfersDeposit() {
         reset,
     } = useForm<NewTransfersDpFormInputs>({
         resolver: zodResolver(newTransfersDpFormSchema),
-        defaultValues: {
-            type: "input",
-        },
     });
 
     async function handleCreateNewTransfersDp(data: NewTransfersDpFormInputs) {
-        const { name, cpf, agency, account, value, description, category, type, password } = data;
+        const {
+            name,
+            cpf,
+            agency,
+            account,
+            price,
+            description,
+            category,
+            type,
+            password,
+        } = data;
 
         await createTransfersDp({
             name,
             cpf,
             agency,
             account,
-            value,
+            price,
             description,
             category,
             type,
-            password
-        })
+            password,
+        });
 
         reset();
     }
@@ -67,58 +75,73 @@ export function ModalTransfersDeposit() {
     return (
         <Dialog.Portal>
             <Overlay />
-            <Content>
-                <Title>
+
+            <ContentDp>
+                <LegendTitle>
                     Transferência
-                    <Bank size={32} />
-                </Title>
+                    <ArrowsLeftRight size={32} />
+                </LegendTitle>
+
+                <CloseButton>
+                    Fechar
+                </CloseButton>
 
                 <form onSubmit={handleSubmit(handleCreateNewTransfersDp)}>
                     <input
-                        type="name"
+                        className="input-name"
+                        type="text"
                         placeholder="Digite o nome"
                         required
                         {...register("name")}
                     />
                     <input
+                        className="input-cpf"
                         type="text"
                         placeholder="Digite o CPF"
                         required
                         {...register("cpf")}
                     />
                     <input
+                        className="input-agency"
                         type="text"
                         placeholder="Nº da agência"
                         required
                         {...register("agency")}
                     />
                     <input
+                        className="input-acc"
                         type="text"
                         placeholder="Nº da conta"
                         required
                         {...register("account")}
                     />
                     <input
-                        type="value"
-                        placeholder="Valor R$"
-                        required
-                        {...register("value")}
-                    />
-                    <input
+                        className="input-desc"
                         type="text"
                         placeholder="Descrição"
                         required
                         {...register("description")}
                     />
                     <input
+                        className="input-number"
+                        type="number"
+                        placeholder="Valor R$"
+                        required
+                        {...register("price", { valueAsNumber: true })}
+                    />
+                    <input
+                        className="input-cat"
                         type="text"
                         placeholder="Categoria"
+                        autoComplete="true"
                         required
                         {...register("category")}
                     />
                     <input
+                        className="input-senha"
                         type="password"
                         placeholder="Digite sua senha"
+                        autoComplete="current-password"
                         required
                         {...register("password")}
                     />
@@ -128,10 +151,7 @@ export function ModalTransfersDeposit() {
                         name="type"
                         render={({ field }) => {
                             return (
-                                <TransfersValueDp
-                                    onValueChange={field.onChange}
-                                    value={field.value}
-                                >
+                                <TransfersValueDp onValueChange={field.onChange} value={field.value}>
                                     <TransfersValueButtonDp variant="input" value="input">
                                         <MdOutlinePayments size={24} />
                                         Receber
@@ -139,19 +159,22 @@ export function ModalTransfersDeposit() {
 
                                     <TransfersValueButtonDp variant="output" value="output">
                                         <MdOutlinePayments size={24} />
-                                        Transferir
+                                        Pagar
                                     </TransfersValueButtonDp>
                                 </TransfersValueDp>
                             );
                         }}
-                    />
-                    <button type="submit" disabled={isSubmitting}>Enviar</button>
-                </form>
 
-                <Close>
-                    <X size={24} />
-                </Close>
-            </Content>
+                    />
+                    <button type="submit" title="Confirmar" disabled={isSubmitting}>
+                        Confirmar
+                    </button>
+
+                </form>
+            </ContentDp>
         </Dialog.Portal>
+
     );
 }
+
+

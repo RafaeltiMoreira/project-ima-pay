@@ -2,26 +2,39 @@
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
+using System.Security.Cryptography;
 
 namespace ImaPay.Helpers;
 
 public class ConfigurarToken
 {
-    private static string _secretKey = "@&&N3>+Dl}'HWY4t?/I2gk}TU'XoSxj[Fy1^UX+;CJpd$eao[%kAO~m%ba9&oG:<(5cRQlq$q@Lz2QL$%'.o:jij<%,y8axn*A3?IFty*i4<;K@M{_I#NjA2%{4DXLLNTLOw*5c(Z]}5|h%Ri,V_k>YeFSLr26}A6%tpBz~G@E&E')@0:aI0Lpg=OCPrm7PfR5nA,??r5M8&s*7i3E@hZ+&H@cj~*x/VpwoMugy[DE_9.N*Xee5*o?0!6~V^>a_";
+    public static byte[] SecretKey = GenerateSecretKey();
+
+    private static byte[] GenerateSecretKey()
+    {
+        const int keySize = 256;
+
+        using var randomNumberGenerator = new RNGCryptoServiceProvider();
+        var key = new byte[keySize / 8];
+        randomNumberGenerator.GetBytes(key);
+
+        return key;
+    }
 
     public static string GerarToken(Usuario usuario)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var tokenKey = Encoding.UTF8.GetBytes(_secretKey);
+        var tokenKey = SecretKey;
+
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+            new Claim(ClaimTypes.Email, usuario.Email)
+        };
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-            new Claim(ClaimTypes.NameIdentifier, usuario.Id),
-            new Claim(ClaimTypes.Email, usuario.Email)
-            }),
+            Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddHours(10),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
         };

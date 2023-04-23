@@ -1,6 +1,6 @@
+import styled from "styled-components";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import styled from "styled-components";
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -10,64 +10,86 @@ export const Overlay = styled(Dialog.Overlay)`
   background: ${({ theme }) => theme.colors["modal-rgba"]};
 `;
 
-export const Content = styled(Dialog.Content)`
-  min-width: 32rem;
-  border-radius: 10px;
-  padding: 2.5rem 3rem;
+export const ContentDp = styled(Dialog.Content)`
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
   background: ${({ theme }) => theme.colors.white};
-
+  border-radius: 6px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   form {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
     gap: 1rem;
 
     input {
       border-radius: 6px;
-      border: 0;
-      background: ${({ theme }) => theme.colors["--background-modal"]};
-      color: ${(props) => props.theme.colors["--theme"]};
-      padding: 0.7rem;
+      border: 1px solid ${({ theme }) => theme.colors.transparent};
+      background: ${({ theme }) => theme.colors["gray-100"]};
+      color: ${({ theme }) => theme.colors["--theme"]};
+      padding: 1rem;
 
       &::placeholder {
-        color: ${(props) => props.theme.colors["--theme"]};
+        color: ${({ theme }) => theme.colors["--theme"]};
       }
     }
 
     button[type="submit"] {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       height: 58px;
       border: 0;
-      background: ${(props) => props.theme.colors["ima-900"]};
-      color: ${(props) => props.theme.colors.white};
-      font-weight: bold;
-      padding: 0 1.25rem;
+      background: ${({ theme }) => theme.colors["--btn-hover"]};
+      color: ${({ theme }) => theme.colors.white};
       border-radius: 6px;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       cursor: pointer;
 
       &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
       }
-
       &:not(:disabled):hover {
-        background: ${(props) => props.theme.colors["--btn-hover"]};
+        background: ${({ theme }) => theme.colors["ima-900"]};
         transition: background-color 0.2s;
       }
     }
   }
 `;
 
+export const CloseButton = styled(Dialog.Close)`
+  position: absolute;
+  background: transparent;
+  border: 0;
+  top: 1.5rem;
+  right: 1.5rem;
+  line-height: 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors["--theme"]};
+
+  &:hover {
+    font-weight: 400;
+    transition: background-color 0.2s;
+  }
+`;
+
 export const TransfersValueDp = styled(RadioGroup.Root)`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 `;
 
 interface TransfersValueButtonPropsDp {
@@ -78,12 +100,13 @@ export const TransfersValueButtonDp = styled(
   RadioGroup.Item
 )<TransfersValueButtonPropsDp>`
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
   color: ${(props) => props.theme.colors["--theme"]};
   background: ${(props) => props.theme.colors.white};
-  border: 1px solid ${(props) => props.theme.colors["--theme"]};
-  align-items: center;
-  justify-content: center;
+  border: 1px solid ${({ theme }) => theme.colors.transparent};
+
   gap: 0.5rem;
   border-radius: 6px;
   cursor: pointer;
@@ -108,19 +131,11 @@ export const TransfersValueButtonDp = styled(
   }
 `;
 
-export const Title = styled(Dialog.Title)`
+export const LegendTitle = styled(Dialog.Title)`
+  font-size: 20px;
+  font-weight: 500;
   display: flex;
   align-items: center;
+  padding: 2rem 0;
   gap: 0.75rem;
-`;
-
-export const Close = styled(Dialog.Close)`
-  position: absolute;
-  background: transparent;
-  color: ${(props) => props.theme.colors["ima-900"]};
-  border: 0;
-  top: 1.5rem;
-  right: 1.5rem;
-  line-height: 0;
-  cursor: pointer;
 `;

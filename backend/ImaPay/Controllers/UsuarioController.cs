@@ -1,9 +1,13 @@
 ﻿using ImaPay.Data;
 using ImaPay.Entity.Dtos;
-using ImaPay.Helpers;
-using Microsoft.AspNetCore.Mvc;
-using System.Net;
 using ImaPay.Entity.Models;
+using ImaPay.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
 
 namespace ImaPay.Controllers;
 
@@ -32,7 +36,7 @@ public class UsuarioController : ControllerBase
         var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.CPF == login.CPF);
         var usuarioNaoCadastrado = (usuario == null);
         var mensagemDeErro = StatusCode(
-            statusCode: (int)HttpStatusCode.Unauthorized,
+            statusCode: (int)HttpStatusCode.BadRequest,
             value: new 
             {
                 Message = $"Usuário ou Senha incorreto.",
@@ -48,5 +52,42 @@ public class UsuarioController : ControllerBase
         var token = ConfigurarToken.GerarToken(usuario);
 
         return Ok(new { token });
+    }
+
+    [Authorize]
+    [HttpGet]
+    [Route("info-usuario")]
+    public IActionResult GetInformacaoUsuario() 
+    {
+        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        try
+        {
+            var claimsPrincipal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(ConfigurarToken.SecretKey),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            }, out var validatedToken);
+
+            var tokenUsuarioId = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id.ToString() == tokenUsuarioId);
+
+            return Ok(usuario);
+        }
+        catch (Exception exception)
+        {
+            return StatusCode(
+                statusCode: (int)HttpStatusCode.InternalServerError,
+                value: new
+                {
+                    Message = "Ocorreu um erro ao processar a requisição.",
+                    Moment = DateTime.Now
+                });
+        }
     }
 }

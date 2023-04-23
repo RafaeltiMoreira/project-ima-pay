@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
+
 namespace ImaPay
 {
     public class Program
@@ -51,6 +52,32 @@ namespace ImaPay
             app.MapControllers();
 
             app.Run();
+
+            //Criar usuario
+            var connString =
+            builder.Configuration.GetConnectionString
+            ("UsuarioConnection");
+
+            IServiceCollection serviceCollection = builder.Services.AddDbContext<UsuarioDbContext>
+                (opts =>
+                {
+                    opts.UseMySql(connString,
+                    ServerVersion.AutoDetect(connString));
+                });
+
+            builder.Services
+                .AddIdentity<Usuario, IdentityRole>()
+                .AddEntityFrameworkStores<UsuarioDbContext>()
+                .AddDefaultTokenProviders();
+
+            builder.Services.AddAutoMapper
+                (AppDomain.CurrentDomain.GetAssemblies());
+
+           
+
+            
+
+            
         }
     }
 }

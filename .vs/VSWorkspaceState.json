@@ -6,7 +6,9 @@
     "\\backend\\ImaPay\\Controllers",
     "\\backend\\ImaPay\\Data",
     "\\backend\\ImaPay\\Entity",
-    "\\backend\\ImaPay\\Entity\\Models"
+    "\\backend\\ImaPay\\Entity\\Dtos",
+    "\\backend\\ImaPay\\Entity\\Models",
+    "\\backend\\ImaPay\\Profiles"
   ],
   "SelectedNode": "\\backend\\ImaPay\\Controllers\\UsuarioController.cs",
   "PreviewInSolutionExplorer": false

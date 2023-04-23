@@ -55,7 +55,7 @@ export function Recovery() {
     <>
       <Navbar />
       <div className={styles.container}>
-        <form className="form-recovery">
+        <form className="form">
           {emailSend &&
             <div className={styles.send}>Email Enviado</div>
           }

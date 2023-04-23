@@ -1,4 +1,4 @@
-.btn {
+.btnHome {
   background: var(--red);
   color: var(--white);
   padding: 15px 45px;
@@ -8,18 +8,17 @@
   border: 0;
   cursor: pointer;
   font-size: 17px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn:hover {
+.btnHome:hover {
   background: var(--btn-hover);
   color: var(--white);
 }
 
-.btn:disabled {
+.btnHome:disabled {
   opacity: 0.4;
   cursor: default;
   background-color: var(--red);

@@ -12,6 +12,7 @@ import { ModalTerms } from "../../components/ModalTerms";
 import { User } from "../../types/User";
 import axios from "axios";
 import { apiUrl } from "../../utils/apiUrl";
+import { Navbar } from "../../components/Navbar";
 
 export function Register() {
   const navigate = useNavigate();
@@ -104,6 +105,7 @@ export function Register() {
 
   return (
     <>
+      <Navbar />
       <div className={styles.container}>
         <form className={styles.formRegister} id="form">
           <div className={styles.leftSide}>
@@ -184,7 +186,7 @@ export function Register() {
               </div>
             </div>
             <ModalTerms isOpen={isModalOpen} closeModal={() => { setIsModalOpen(!isModalOpen) }} />
-            <Button size="300" action={handleSubmit} txt="Próximo" />
+            <Button size="400" action={handleSubmit} txt="Próximo" />
           </div>
         </form>
       </div>

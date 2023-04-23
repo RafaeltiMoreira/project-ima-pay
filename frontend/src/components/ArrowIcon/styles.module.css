@@ -1,10 +1,13 @@
 button {
-    border: 0;
-    background-color: transparent;
+  border: 0;
+  background-color: transparent;
 }
 
 .icon {
-    font-size: 2rem;
-    color: var(--theme);
-    cursor: pointer;
+  font-size: 2rem;
+  color: var(--theme);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

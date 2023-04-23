@@ -11,7 +11,7 @@ import * as z from "zod";
 import { useContextSelector } from "use-context-selector"
 import { TransfersContextPix } from "../../contexts/TransfersContextPixDp";
 import * as Dialog from '@radix-ui/react-dialog'
-import { CloseButton, LegendTitle, TransfersValueButtonDp } from "../TransfersDp/styles";
+import { CloseButton, LegendTitle } from "../TransfersDp/styles";
 
 const newTransfersFormSchema = z.object({
     pix: z.string(),
@@ -120,7 +120,7 @@ export function TransfersPix() {
 
                                     <TransfersValueButtonPix variant="output" value="output">
                                         <MdOutlinePayments size={26} />
-                                        Transferir
+                                        Pagar
                                     </TransfersValueButtonPix>
                                 </TransfersValuePix>
                             );

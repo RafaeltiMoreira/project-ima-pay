@@ -184,3 +184,6 @@ D:\dev\sharp-coders\project-ima-pay\backend\ImaPay\bin\Debug\net6.0\Microsoft.As
 D:\dev\sharp-coders\project-ima-pay\backend\ImaPay\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\dev\sharp-coders\project-ima-pay\backend\ImaPay\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\dev\sharp-coders\project-ima-pay\backend\ImaPay\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\dev\SharpCoders\ImaPay\project-ima-pay\backend\ImaPay\obj\Debug\net6.0\ImaPay.dll
+C:\dev\SharpCoders\ImaPay\project-ima-pay\backend\ImaPay\obj\Debug\net6.0\refint\ImaPay.dll
+C:\dev\SharpCoders\ImaPay\project-ima-pay\backend\ImaPay\obj\Debug\net6.0\ImaPay.pdb

@@ -1,44 +1,33 @@
 import styled from "styled-components";
 
-export const ViewHistoryContainer = styled.form`
+export const ViewFormContainer = styled.form`
   display: flex;
   gap: 1rem;
 
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem 0;
-
-  input {
+  .input-view {
     flex: 1;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    background: ${({ theme }) => theme.colors.white};
-    color: ${(props) => props.theme.colors["--theme"]};
-    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid ${({ theme }) => theme.colors.transparent};
+    background: ${({ theme }) => theme.colors["--background-modal"]};
+    color: ${({ theme }) => theme.colors["--theme"]};
     padding: 1rem;
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors["--theme"]};
-    }
-
-    &:hover {
-      border: 1px solid ${(props) => props.theme.colors["--theme"]};
-      transition: background-color 0.2s border-color 0.2s;
+      color: ${({ theme }) => theme.colors["--theme-dark"]};
     }
   }
 
-  button {
+  .button-view {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-
-    border: 1px solid transparent;
     padding: 1rem;
-    background: ${({ theme }) => theme.colors.white};
-    color: ${(props) => props.theme.colors["--theme"]};
+    border: 1px solid ${({ theme }) => theme.colors.transparent};
+    background: ${({ theme }) => theme.colors["--background-modal"]};
+    color: ${({ theme }) => theme.colors["--theme"]};
     font-weight: 500;
-    border-radius: 6px;
+    border-radius: 10px;
+
     cursor: pointer;
 
     &:disabled {
@@ -47,8 +36,6 @@ export const ViewHistoryContainer = styled.form`
     }
 
     &:not(:disabled):hover {
-      border: 1px solid ${(props) => props.theme.colors["--theme"]};
-
       transition: background-color 0.2s border-color 0.2s;
     }
   }

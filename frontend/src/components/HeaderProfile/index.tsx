@@ -1,5 +1,5 @@
 import { HeaderButton, HeaderButtonT, HeaderProfileContainer, HeaderProfileContent, HeaderProfileDiv } from "./styles";
-import { ArrowsLeftRight, Bank, CurrencyDollar, Scroll, Wallet } from "phosphor-react";
+import { ArrowsLeftRight, Bank, Scroll, Wallet } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import logoImaPay from "../../assets/logo-ima.webp";
 import { MdPix } from "react-icons/md";
@@ -20,7 +20,7 @@ export function HeaderProfile() {
 
                     <Dialog.Root>
                         <HeaderButtonT asChild title="Transferir">
-                            <Wallet className="btn-icon" />
+                            <ArrowsLeftRight className="btn-icon" />
                         </HeaderButtonT>
                         <TransfersDp />
                     </Dialog.Root>

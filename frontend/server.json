@@ -74,6 +74,16 @@
       "password": "12347",
       "createdAt": "2023-04-22T06:11:41.017Z",
       "id": 5
+    },
+    {
+      "pix": "newteste@gmail.com",
+      "price": 350,
+      "description": "github",
+      "category": "PIX",
+      "type": "output",
+      "password": "123564",
+      "createdAt": "2023-04-23T02:04:35.070Z",
+      "id": 6
     }
   ]
 }

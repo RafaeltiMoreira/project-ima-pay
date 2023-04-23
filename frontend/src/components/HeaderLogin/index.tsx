@@ -1,5 +1,5 @@
 import { HeaderLoginContainer, HeaderLoginContent } from "./styles";
-import { Power } from "phosphor-react";
+import { SignOut } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import logoImaPay from "../../assets/logo-ima.webp";
 
@@ -9,14 +9,14 @@ export function HeaderLogin() {
             <HeaderLoginContent>
                 <img src={logoImaPay} alt="Logo com texto Imã Pay" />
 
-                <NavLink to="/sharnonymous-ima-pay">
+                <NavLink to="/">
                     <button type="submit">
-                        <Power
-                            className="btn-power"
+                        Sair
+                        <SignOut
+                            className="btn-out"
                             size={28}
                             weight="bold"
                             alt="Botão de sair" />
-                        Sair
                     </button>
                 </NavLink>
 

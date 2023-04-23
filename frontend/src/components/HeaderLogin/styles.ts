@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderLoginContainer = styled.header`
   box-shadow: 0 0.1rem 0.5rem ${({ theme }) => theme.colors.ice};
-  padding: 2.5rem 0;
+  padding: 1rem 0;
 `;
 
 export const HeaderLoginContent = styled.div`
@@ -26,20 +26,18 @@ export const HeaderLoginContent = styled.div`
 
     border: 1px solid transparent;
     padding: 1rem;
-    background: ${({ theme }) => theme.colors.ice};
-    color: ${(props) => props.theme.colors["--theme"]};
+    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors["--theme"]};
     font-weight: 500;
     border-radius: 10px;
 
     &:hover {
-      background: ${({ theme }) => theme.colors.white};
-      border: 1px solid ${(props) => props.theme.colors["--theme"]};
-
+      border: 1px solid ${({ theme }) => theme.colors["--theme"]};
       transition: background-color 0.2s border-color 0.2s;
     }
   }
 
-  .btn-power {
+  .btn-out {
     color: ${({ theme }) => theme.colors["ima-900"]};
     display: flex;
     justify-content: center;

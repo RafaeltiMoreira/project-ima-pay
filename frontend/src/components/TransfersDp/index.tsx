@@ -79,7 +79,7 @@ export function TransfersDp() {
             <ContentDp>
                 <LegendTitle>
                     Transferência
-                    <Wallet size={32} />
+                    <ArrowsLeftRight size={32} />
                 </LegendTitle>
 
                 <CloseButton>
@@ -116,18 +116,18 @@ export function TransfersDp() {
                         {...register("account")}
                     />
                     <input
-                        className="input-number"
-                        type="number"
-                        placeholder="Valor R$"
-                        required
-                        {...register("price", { valueAsNumber: true })}
-                    />
-                    <input
                         className="input-desc"
                         type="text"
                         placeholder="Descrição"
                         required
                         {...register("description")}
+                    />
+                    <input
+                        className="input-number"
+                        type="number"
+                        placeholder="Valor R$"
+                        required
+                        {...register("price", { valueAsNumber: true })}
                     />
                     <input
                         className="input-cat"
@@ -159,7 +159,7 @@ export function TransfersDp() {
 
                                     <TransfersValueButtonDp variant="output" value="output">
                                         <MdOutlinePayments size={24} />
-                                        Transferir
+                                        Pagar
                                     </TransfersValueButtonDp>
                                 </TransfersValueDp>
                             );

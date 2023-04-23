@@ -1,70 +1,86 @@
-import { MagnifyingGlass } from "phosphor-react";
+import { useContextSelector } from "use-context-selector";
+import { ViewFormContainer } from "./styles";
+import {
+    TransfersContextDp,
+    TransfersContextPix,
+} from "../../contexts/TransfersContextPixDp";
 
-import { ViewHistoryContainer } from "./styles";
-import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { MagnifyingGlass } from "phosphor-react";
 import { TableTransfers } from "../../components/TableTransfers";
-import { useContext } from "react";
-import { TransfersContextDp } from "../../contexts/TransfersContextDp";
-import { TransfersContextPix } from "../../contexts/TransfersContextPix";
+import { memo } from "react";
 
-const viewFormSchemaDp = z.object({
+const viewFormSchema = z.object({
     query: z.string(),
-})
+});
 
-const viewFormSchemaPix = z.object({
-    query: z.string(),
-})
+type ViewFormInputs = z.infer<typeof viewFormSchema>;
 
-type ViewFormInputsDp = z.infer<typeof viewFormSchemaDp>;
-type ViewFormInputsPix = z.infer<typeof viewFormSchemaPix>;
+function ViewHistoryPage() {
+    const fetchTransfersDp = useContextSelector(TransfersContextDp, (context) => {
+        return context.fetchTransfersDp;
+    });
 
-export function ViewHistory() {
-    const { fetchTransfersDp } = useContext(TransfersContextDp);
-    const { fetchTransfersPix } = useContext(TransfersContextPix);
+    const fetchTransfersPix = useContextSelector(
+        TransfersContextPix,
+        (context) => {
+            return context.fetchTransfersPix;
+        }
+    );
 
     const {
         register,
         handleSubmit,
         formState: { isSubmitting },
-    } = useForm<ViewFormInputsDp | ViewFormInputsPix>({
-        resolver: zodResolver(viewFormSchemaDp && viewFormSchemaPix),
+    } = useForm<ViewFormInputs>({
+        resolver: zodResolver(viewFormSchema),
     });
 
-    async function handleViewTransfersDp(data: ViewFormInputsDp) {
-        await fetchTransfersDp(data.query);
+    async function handleViewTransfersDp(data: ViewFormInputs) {
+        return fetchTransfersDp(data.query);
     }
 
-    async function handleViewTransfersPix(data: ViewFormInputsPix) {
-        await fetchTransfersPix(data.query);
+    async function handleViewTransfersPix(data: ViewFormInputs) {
+        return fetchTransfersPix(data.query);
     }
 
-    async function handleViewTransfers(data: ViewFormInputsDp | ViewFormInputsPix) {
-        if ("query" in data) {
-            await handleViewTransfersDp(data);
+    async function handleViewTransfers(data: ViewFormInputs) {
+        let result;
+        if (data.query) {
+            result = await handleViewTransfersDp(data);
         } else {
-            await handleViewTransfersPix(data);
+            result = await handleViewTransfersPix(data);
         }
+        console.log(data)
+        return result;
     }
+
     return (
         <div>
-
-            <ViewHistoryContainer onSubmit={handleSubmit(handleViewTransfers)}>
-
+            <ViewFormContainer onSubmit={handleSubmit(handleViewTransfers)}>
                 <input
+                    className="input-view"
                     type="text"
                     placeholder="Histórico de transferências"
                     {...register("query")}
                 />
 
-                <button type="submit" disabled={isSubmitting} title="Buscar histórico de transferências">
-                    <MagnifyingGlass size={32} />
+                <button
+                    className="button-view"
+                    type="submit"
+                    disabled={isSubmitting}
+                    title="Buscar histórico de transferências"
+                >
+                    <MagnifyingGlass size={28} />
                     Visualizar
                 </button>
-
-            </ViewHistoryContainer>
+            </ViewFormContainer>
             <TableTransfers />
         </div>
     );
 }
+
+export const ViewHistory = memo(ViewHistoryPage);
+

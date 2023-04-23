@@ -36,13 +36,13 @@ export function Login() {
     }
 
     let userFound = false;
-    for (let user of users) {
+    /*for (let user of users) {
       if (user.cpf === cpf && user.password === password) {
         userFound = true;
         navigate(`/view/${user.id}`, { state: { user } });
         break;
       }
-    }
+    }*/
 
     if (!userFound) {
       setLoginError(true);

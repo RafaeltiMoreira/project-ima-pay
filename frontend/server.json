@@ -42,6 +42,19 @@
       "password": "123654",
       "createdAt": "2023-04-22T01:29:45.234Z",
       "id": 2
+    },
+    {
+      "name": "Pedro",
+      "cpf": "112.180.612-00",
+      "agency": "1222",
+      "account": "10522",
+      "price": 800,
+      "description": "Manutenção APP",
+      "category": "PIX",
+      "type": "output",
+      "password": "13568",
+      "createdAt": "2023-04-23T22:28:03.642Z",
+      "id": 3
     }
   ],
   "transferspix": [
@@ -84,6 +97,16 @@
       "password": "123564",
       "createdAt": "2023-04-23T02:04:35.070Z",
       "id": 6
+    },
+    {
+      "pix": "Brasília",
+      "price": 350,
+      "description": "Teste 3",
+      "category": "PIX",
+      "type": "input",
+      "password": "12356",
+      "createdAt": "2023-04-23T22:26:42.209Z",
+      "id": 7
     }
   ]
 }

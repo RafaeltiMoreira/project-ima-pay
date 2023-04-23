@@ -3,6 +3,7 @@ import Invest from "../../assets/invest.svg";
 import { Error } from "../../components/Error";
 import { useState } from "react";
 import { Button } from "../../components/Button";
+import { Navbar } from "../../components/Navbar";
 
 export function RegisterAddress() {
   const [cep, setCep] = useState("");
@@ -68,6 +69,7 @@ export function RegisterAddress() {
 
   return (
     <>
+      <Navbar />
       <div className={styles.container}>
         <form className={styles.formAddress} id="form">
           <div className={styles.leftSide}>

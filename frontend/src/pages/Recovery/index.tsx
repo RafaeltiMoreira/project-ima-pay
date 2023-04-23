@@ -22,7 +22,7 @@ export function Recovery() {
   const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    for (let user of users) {
+    /*for (let user of users) {
       if (email === "" || !validateEmail.test(email)) {
         setEmailErr(true);
         setMessageError("Digite um email válido");
@@ -48,7 +48,7 @@ export function Recovery() {
         navigate('/login');
       }, 1300)
       return true;
-    }
+    }*/
   };
 
   return (

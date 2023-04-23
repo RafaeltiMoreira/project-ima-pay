@@ -35,7 +35,7 @@ export function Login() {
       return;
     }
 
-    let userFound = false;
+    /*let userFound = false;
     for (let user of users) {
       if (user.cpf === cpf && user.password === password) {
         userFound = true;
@@ -51,7 +51,7 @@ export function Login() {
         setLoginError(false);
       }, 1000);
       return;
-    }
+    }*/
   };
 
   const toggleShow = () => {
@@ -113,7 +113,7 @@ export function Login() {
               </button>
             </div>
           </div>
-          <Button action={handleSubmit} txt="Entrar" />
+          <Button size="400" action={handleSubmit} txt="Entrar" />
           <div className={styles.linkArea}>
             <Link className={styles.link} to="/recovery">
               Esqueci minha senha

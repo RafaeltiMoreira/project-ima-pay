@@ -75,6 +75,7 @@ export function Register() {
 
     if (isValid && isChecked) {
       const newUser: User = {
+        Nome: name,
         Cpf: cpf,
         Email: email,
         Senha: password,

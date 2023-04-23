@@ -17,8 +17,8 @@ export function RegisterAddress() {
 
   const isFormValid =
     cep !== "" && rua !== "" && numero !== "" && bairro !== "";
-    cidade !== "";
-    estado !== "";
+  cidade !== "";
+  estado !== "";
 
   const inputValid = () => {
     if (!isFormValid) {
@@ -69,7 +69,7 @@ export function RegisterAddress() {
   return (
     <>
       <div className={styles.container}>
-        <form className={styles.form} id="form">
+        <form className={styles.formAddress} id="form">
           <div className={styles.leftSide}>
             <div className={styles.imgArea}>
               <legend>Confirme seu endereço</legend>

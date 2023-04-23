@@ -27,7 +27,8 @@ export const AllTransfersCards = styled.div<TransfersCardsProps>`
     color: ${({ theme }) => theme.colors["roxo-ima-900"]};
   }
 
-  legend {
+  .legend-amount {
+    display: flex;
     font-weight: bold;
     color: ${({ theme }) => theme.colors["roxo-ima-900"]};
   }

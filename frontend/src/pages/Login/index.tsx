@@ -39,7 +39,7 @@ export function Login() {
     for (let user of users) {
       if (user.cpf === cpf && user.password === password) {
         userFound = true;
-        navigate(`/transfers/${user.id}`, { state: { user } });
+        navigate(`/view/${user.id}`, { state: { user } });
         break;
       }
     }

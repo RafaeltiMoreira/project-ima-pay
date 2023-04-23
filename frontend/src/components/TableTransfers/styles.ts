@@ -4,7 +4,7 @@ export const TableContainer = styled.section`
   width: 100%;
   max-width: 1120px;
   margin: 1rem auto 0;
-  padding: 0 1.5rem;
+  /*padding: 0 1.5rem;*/
 `;
 
 export const TableContent = styled.table`
@@ -30,7 +30,6 @@ export const TableContent = styled.table`
     }
   }
 `;
-
 interface ValueTransfersProps {
   variant: "input" | "output";
 }

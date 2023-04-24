@@ -41,6 +41,7 @@ label {
 
 .rightSide {
   width: 400px;
+  margin: -20px;
 }
 
 .inputWrapper input {

@@ -1,51 +1,59 @@
-﻿using AutoMapper;
-using ImaPay.Data;
-using ImaPay.Entity.Dtos;
-using ImaPay.Entity.Models;
-using ImaPay.Helpers;
+﻿using System.Data;
+using System.Dtos;
+using System.Helpers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
+using ImaPay.Dtos;
+using System.Implementacoes.InterManage;
+using System.Models;
 
-namespace ImaPay.Controllers;
+namespace System.Controllers;
 
 [ApiController]
 [Route("usuarios")]
 public class UsuarioController : ControllerBase
 {
-    private SharnoContextDb _context;
-    private IMapper _mapper;
-    private UserManager<Usuario> _userManager;
+    private readonly IImaPayService _imaPayService;
 
-    public UsuarioController(SharnoContextDb context, IMapper mapper, UserManager<Usuario> userManager)
+    public UsuarioController(IImaPayService imaPayService)
     {
-        _context = context;
-        _mapper = mapper;
-        _userManager = userManager;
+        _imaPayService = imaPayService;
     }
 
-    [AllowAnonymous]
     [HttpPost]
     [Route("register")]
-    public async Task<IActionResult> Register([FromBody] UsuarioRegistroDTO register)
+    public async Task<IActionResult> RegisterUserAsync(UsuarioEnderecoDTO dto)
     {
-        var usuario = _mapper.Map<Usuario>(register);
+        var usuario = await _imaPayService.RegisterUserAsync(dto);
+        return Ok(usuario);
+    }
 
-        IdentityResult resultado = await _userManager.CreateAsync(usuario, register.Password);
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUserByIdAsync(int id)
+    {
+        var usuario = await _imaPayService.GetUserByIdAsync(id);
+        if (usuario == null) return NotFound();
+        return Ok(usuario);
+    }
 
-        if (resultado.Succeeded)
-        {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
-            return Ok("Usuário cadastrado!");
-        }
+    [HttpGet("email/{email}")]
+    public async Task<IActionResult> GetUserByEmailAsync(string email)
+    {
+        var usuario = await _imaPayService.GetUserByEmailAsync(email);
+        if (usuario == null) return NotFound();
+        return Ok(usuario);
+    }
 
-        throw new ApplicationException("Falha ao cadastrar usuario!");
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> RemoverUsuario(int id)
+    {
+        await _imaPayService.DeleteUsuarioAsync(id);
+        return NoContent();
     }
 
     [AllowAnonymous]
@@ -53,31 +61,14 @@ public class UsuarioController : ControllerBase
     [Route("login")]
     public async Task<IActionResult> Login([FromBody] UsuarioLoginDTO login)
     {
-        var usuario = await _context.Usuarios.FirstOrDefaultAsync(usuario => usuario.CPF == login.CPF);
-        var usuarioNaoCadastrado = (usuario == null);
-        var mensagemDeErro = StatusCode(
-            statusCode: (int)HttpStatusCode.BadRequest,
-            value: new 
-            {
-                Message = $"Usuário ou Senha incorreto.",
-                Moment = DateTime.Now
-            });
-
-        if (usuarioNaoCadastrado) return mensagemDeErro;
-
-        var senhaIncorreta = !BCrypt.Net.BCrypt.Verify(login.Senha, usuario.Senha);
-
-        if (senhaIncorreta) return mensagemDeErro;
-
-        var token = ConfigurarToken.GerarToken(usuario);
-
-        return Ok(new { token });
+        var usuario = await _imaPayService.LoginAsync(login);
+        return Ok(usuario);
     }
 
     [Authorize]
     [HttpGet]
     [Route("info-usuario")]
-    public async Task<IActionResult> GetInformacaoUsuario() 
+    public async Task<IActionResult> GetInformacaoUsuario()
     {
         var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
@@ -95,7 +86,7 @@ public class UsuarioController : ControllerBase
 
             var tokenUsuarioId = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(usuario => usuario.Id.ToString() == tokenUsuarioId);
+            var usuario = await _imaPayService.Usuario.FirstOrDefaultAsync(usuario => usuario.Id.ToString() == tokenUsuarioId);
 
             return Ok(usuario);
         }

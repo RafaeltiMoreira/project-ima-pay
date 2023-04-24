@@ -63,7 +63,7 @@ export function RegisterAddress() {
     const isValid = inputValid();
 
     if (isValid) {
-
+      
     }
   };
 

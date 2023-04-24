@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using ImaPay.Entity.Models;
+using System.Models;
 
 namespace ImaPay.Validador;
 

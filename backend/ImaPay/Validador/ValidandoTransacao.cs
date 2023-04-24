@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using ImaPay.Entity.Models;
+using System.Models;
 
 namespace ImaPay.Validador;
 
-public class ValidandoTransacao : AbstractValidator<Transacao>
+public class ValidandoTransacao : AbstractValidator<Transferencia>
 {
     public ValidandoTransacao()
     {

@@ -1,5 +1,6 @@
-using ImaPay.Data;
-using ImaPay.Entity.Models;
+using System.Context;
+using System.Data;
+using System.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -28,12 +29,23 @@ namespace ImaPay
                 });
             });
 
-            builder.Services.AddDbContext<SharnoContextDb>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SharnoBank")));
+            /*builder.Services.AddDbContext<SharnoContextDb>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SharnoBank")));*/
 
-            builder.Services.AddIdentity<Usuario, IdentityRole>(options => {
+            var connectionString = builder.Configuration.GetConnectionString("SharnoBank");
+
+            builder.Services.AddDbContext<SharpDB>(options =>
+            {
+                options.UseMySql(
+                    connectionString: connectionString,
+                    serverVersion: ServerVersion.AutoDetect(connectionString)
+                );
+            });
+
+            builder.Services.AddIdentity<Usuario, IdentityRole>(options =>
+            {
                 options.User.RequireUniqueEmail = true;
-            })  .AddEntityFrameworkStores<SharnoContextDb>()
+            }).AddEntityFrameworkStores<SharpDB>()
                 .AddDefaultTokenProviders();
 
             var app = builder.Build();
@@ -52,27 +64,6 @@ namespace ImaPay
             app.MapControllers();
 
             app.Run();
-
-            //Criar usuario
-            var connString =
-            builder.Configuration.GetConnectionString
-            ("UsuarioConnection");
-
-            IServiceCollection serviceCollection = builder.Services.AddDbContext<UsuarioDbContext>
-                (opts =>
-                {
-                    opts.UseMySql(connString,
-                    ServerVersion.AutoDetect(connString));
-                });
-
-            builder.Services
-                .AddIdentity<Usuario, IdentityRole>()
-                .AddEntityFrameworkStores<UsuarioDbContext>()
-                .AddDefaultTokenProviders();
-
-            builder.Services.AddAutoMapper
-                (AppDomain.CurrentDomain.GetAssemblies());
-            
         }
     }
 }

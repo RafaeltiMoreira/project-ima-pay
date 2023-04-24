@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {}
+    "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {}
   },
   "projects": {
-    "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {
+    "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+        "projectUniqueName": "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
         "projectName": "ImaPay",
-        "projectPath": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
-        "packagesPath": "C:\\Users\\denil\\.nuget\\packages\\",
-        "outputPath": "D:\\dev\\sharp-coders\\project-ima-pay\\backend\\ImaPay\\obj\\",
+        "projectPath": "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\ImaPay.csproj",
+        "packagesPath": "C:\\Users\\rafa_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafa_\\OneDrive\\Documentos\\project-ima-pay\\backend\\ImaPay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\denil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rafa_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -73,7 +73,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[7.0.5, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
@@ -107,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

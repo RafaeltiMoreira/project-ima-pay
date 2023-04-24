@@ -1,15 +1,21 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { User } from "../../types/User";
 
 export function UserPage() {
-  const { state } = useLocation();
-  const user = state?.user;
+  const [user, setUser] = useState<User | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.user) {
+      setUser(location.state.user);
+    }
+  }, [location]);
 
   return (
     <>
       {user ? (
-        <>
-          <h1>Olá, seja bem vindo (a) {user.name}</h1>
-        </>
+            <h2>Olá, {user.name}</h2>
       ) : (
         <div>Usuário não encontrado.</div>
       )}

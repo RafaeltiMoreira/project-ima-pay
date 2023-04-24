@@ -1,10 +1,10 @@
-﻿using ImaPay.Entity.Models;
+﻿using System.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-namespace ImaPay.Helpers;
+namespace System.Helpers;
 
 public class ConfigurarToken
 {

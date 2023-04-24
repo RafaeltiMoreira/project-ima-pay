@@ -11,6 +11,10 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.rightSide {
+  width: 400px;
+}
+
 .leftSide {
   display: flex;
   align-items: center;

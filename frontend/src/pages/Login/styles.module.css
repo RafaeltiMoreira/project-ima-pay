@@ -90,9 +90,10 @@ legend {
   bottom: 37px;
   left: 290px;
   width: 30px;*/
+  display: block;
   position: fixed;
-  bottom: 292px;
-  left: 960px;
+  bottom: 495px;
+  left: 1130px;
 }
 
 .eye {

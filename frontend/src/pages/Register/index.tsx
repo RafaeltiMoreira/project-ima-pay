@@ -8,10 +8,8 @@ import { validateEmail, validatePassword } from "../../utils/regex";
 import { cpfMask } from "../../utils/cpf";
 import { phoneMask } from "../../utils/phone";
 import { useNavigate } from "react-router-dom";
-import { ModalTerms } from "../../components/ModalTerms";
 import { User } from "../../types/User";
-import axios from "axios";
-import { apiUrl } from "../../utils/apiUrl";
+import { ModalTerms } from "../../components/ModalTerms";
 import { Navbar } from "../../components/Navbar";
 
 export function Register() {
@@ -23,6 +21,8 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [registerError, setRegisterError] = useState(false);
+  const [success, setSucces] = useState(false);
+  const [users, setUsers] = useState<User[]>([]);
   const [idCounter, setIdCounter] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -36,7 +36,7 @@ export function Register() {
 
   const isEmailValid = validateEmail.test(email);
   const isPasswordValid = validatePassword.test(password);
-
+                                      
   const inputValid = () => {
     if (!isFormValid) {
       setRegisterError(true);
@@ -68,7 +68,7 @@ export function Register() {
     return true;
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const isValid = inputValid();
@@ -77,28 +77,28 @@ export function Register() {
 
     if (isValid && isChecked) {
       const newUser: User = {
-        Nome: name,
-        Cpf: cpf,
-        Email: email,
-        Senha: password,
-        Celular: celular,
+        id: idCounter,
+        name,
+        email,
+        password,
+        celular,
+        cpf,
       };
+      setIdCounter(idCounter + 1);
+      setUsers([...users, newUser]);
 
-      try {
-        const response = await axios.post(`${apiUrl}/usuario/register`, newUser);
-        console.log(response.data);
-        navigate("/register/address");
-      } catch (error) {
-        setErrorMessage("Erro");
-        console.error(error);
-      }
-
-    } else if (!isChecked && isFormFilled) {
+      setSucces(true);
+      setTimeout(() => {
+        navigate("/login");
+        setSucces(false);
+      }, 1300);
+      return true;
+    } else if(!isChecked && isFormFilled) {
       setRegisterError(true);
       setErrorMessage("Por favor, concorde com os termos");
       setTimeout(() => {
         setRegisterError(false);
-      }, 800);
+      }, 1000);
       return false;
     }
   };
@@ -116,6 +116,9 @@ export function Register() {
             <img src={Invest} alt="Invest" />
           </div>
           <div className={styles.rightSide}>
+            {success && (
+              <div className={styles.success}>Conta criada com sucesso!</div>
+            )}
             {registerError && <Error msg={`${errorMessage}`} />}
             <div className={styles.inputWrapper}>
               <label htmlFor="cpf">CPF</label>
@@ -168,25 +171,24 @@ export function Register() {
                 onChange={e => setPassword(e.target.value)}
                 value={password}
                 placeholder="Digite uma senha forte"
-                minLength={6}
               />
             </div>
             <div className={styles.checkbox}>
-              <input
-                type="checkbox"
-                id="checkbox1"
-                checked={isChecked}
+              <input 
+                type="checkbox" 
+                id="checkbox1" 
+                checked={isChecked} 
                 onChange={e => setIsChecked(e.target.checked)}
               />
               <div className={styles.terms}>
                 <span>Li e concordo com os</span>
                 <button type="button" onClick={() => setIsModalOpen(true)} className={styles.btn}>
-                  Termos de Serviço
+                   Termos de Serviço
                 </button>
               </div>
             </div>
-            <ModalTerms isOpen={isModalOpen} closeModal={() => { setIsModalOpen(!isModalOpen) }} />
-            <Button size="400" action={handleSubmit} txt="Próximo" />
+            <ModalTerms isOpen={isModalOpen} closeModal={() => {setIsModalOpen(!isModalOpen)}}/>
+            <Button size="400" action={handleSubmit} txt="Enviar" />
           </div>
         </form>
       </div>

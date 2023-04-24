@@ -2,14 +2,15 @@
   max-width: 400px;
   margin: 0 auto;
   width: 90%;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .title {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 50px;
+  margin-bottom: 30px;
 }
 
 .fieldsetWrapper {
@@ -90,9 +91,8 @@ legend {
   left: 290px;
   width: 30px;*/
   position: fixed;
-  bottom: 495px;
-  left: 172px;
-  width: 100%;
+  bottom: 292px;
+  left: 960px;
 }
 
 .eye {

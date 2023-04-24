@@ -1,16 +1,22 @@
 .container {
-  max-width: 650px;
+  max-width: 450px;
   margin: 50px auto;
   width: 90%;
 }
 
-.form-Recovery {
+.form {
+  margin-top: 100px;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0.1rem 0.5rem var(--ice);
   padding: 34px;
   display: flex;
   flex-direction: column;
+}
+
+.back {
+    display: flex;
+    gap: 50px;
 }
 
 fieldset {

@@ -11,7 +11,7 @@ import { validateLogin } from "../../utils/validateLogin";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { cpfMask } from "../../utils/cpf";
 
-export function Login() {
+export function Login() { 
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
@@ -36,13 +36,13 @@ export function Login() {
     }
 
     let userFound = false;
-    /*for (let user of users) {
+    for (let user of users) {
       if (user.cpf === cpf && user.password === password) {
         userFound = true;
-        navigate(`/view/${user.id}`, { state: { user } });
+        navigate(`/user/alltransfers/${user.id}`, { state: { user } });
         break;
       }
-    }*/
+    }
 
     if (!userFound) {
       setLoginError(true);

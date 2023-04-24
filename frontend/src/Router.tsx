@@ -26,8 +26,8 @@ export function Router() {
             {/*<Route path="/view/:userId" element={<ViewHistory />} />*/}
             <Route path="/" element={<DefaultLayout />}>
                 <Route path="/" element={<DefaultHome />}>
-                    <Route path="/view" element={<ViewHistory />} />
-                    <Route path="/alltransfers" element={<AllTransfers />} />
+                    <Route path="/user/alltransfers/:userId" element={<AllTransfers />} />
+                    <Route path="/user/view/:userId" element={<ViewHistory />} />
                 </Route>
             </Route>
         </Routes>

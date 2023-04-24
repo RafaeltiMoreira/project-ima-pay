@@ -1,20 +1,19 @@
 import { HeaderButton, HeaderButtonT, HeaderProfileContainer, HeaderProfileContent, HeaderProfileDiv } from "./styles";
 import { ArrowsLeftRight, Bank, Scroll, Wallet } from "phosphor-react";
 import { NavLink } from "react-router-dom";
-import logoImaPay from "../../assets/logo-ima.webp";
 import { MdPix } from "react-icons/md";
 import * as Dialog from '@radix-ui/react-dialog'
 import { TransfersPix } from "../TransfersPix";
 import { TransfersDp } from "../TransfersDp";
+import { UserPage } from "../../pages/User";
 
 export function HeaderProfile() {
     return (
         <HeaderProfileContainer>
             <HeaderProfileContent>
-                <img src={logoImaPay} alt="Logo com texto Imã Pay" />
-
+                <UserPage />
                 <HeaderProfileDiv>
-                    <NavLink to="/alltransfers" title="Saldo bancário">
+                    <NavLink to="/user/alltransfers/2" title="Saldo bancário">
                         <Bank className="btn-icon" />
                     </NavLink>
 
@@ -32,7 +31,7 @@ export function HeaderProfile() {
                         <TransfersPix />
                     </Dialog.Root>
 
-                    <NavLink to="/view" title="Histórico de transações">
+                    <NavLink to="/user/view/2" title="Histórico de transações">
                         <Scroll className="btn-icon" />
                     </NavLink>
                 </HeaderProfileDiv>

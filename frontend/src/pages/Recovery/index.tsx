@@ -22,7 +22,7 @@ export function Recovery() {
   const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    /*for (let user of users) {
+    for (let user of users) {
       if (email === "" || !validateEmail.test(email)) {
         setEmailErr(true);
         setMessageError("Digite um email válido");
@@ -48,23 +48,23 @@ export function Recovery() {
         navigate('/login');
       }, 1300)
       return true;
-    }*/
+    }
   };
 
   return (
     <>
       <Navbar />
       <div className={styles.container}>
-        <form className="form-recovery">
+        <form className={styles.form}>
           {emailSend &&
             <div className={styles.send}>Email Enviado</div>
           }
-          <div>
-            <ArrowIcon />
+          <div className={styles.back}>
+          <ArrowIcon />
+          <legend>Recuperar senha</legend>
           </div>
           <fieldset>
             <div className={styles.fieldsetWrapper}>
-              <legend>Recuperar senha</legend>
               <div className={styles.inputWrapper}>
                 <label>Digite o endereço de e-mail de acesso na Imã Pay</label>
                 <input

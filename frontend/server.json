@@ -23,32 +23,19 @@
       "cpf": "151.141.014-19",
       "agency": 452,
       "account": 10244,
-      "price": 15000,
+      "price": 500,
       "description": "Funcionalidade Pay",
-      "category": "PIX",
+      "category": "Transferência",
       "type": "input",
       "password": 12345,
       "createdAt": "2023-04-18T23:25:42.482Z"
-    },
-    {
-      "name": "Nova aplicação",
-      "cpf": "014.861.554.98",
-      "agency": "1422",
-      "account": "10522",
-      "price": 500,
-      "description": "Manutenção de PC",
-      "category": "Transferência",
-      "type": "input",
-      "password": "123654",
-      "createdAt": "2023-04-22T01:29:45.234Z",
-      "id": 2
     }
   ],
   "transferspix": [
     {
-      "id": 3,
+      "id": 2,
       "pix": "sharnonymous@gmail.com",
-      "price": 1500,
+      "price": 500,
       "description": "Aplicativo Imã Pay",
       "category": "PIX",
       "type": "input",

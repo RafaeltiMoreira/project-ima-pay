@@ -12,13 +12,14 @@ A Imã Pay foi criada em abril de 2023, inspirada na Imã Tech e sob orientaçã
 
 <!--ts-->
 
-- [Sobre o projeto](#-sobre-o-projeto)
-  - [Funcionalidades](#%EF%B8%8F-funcionalidades)
-  - [Layout](#-layout)
-  - [Como executar o projeto](#-como-executar-o-projeto)
-  - [Tecnologias](#-tecnologias)
-  - [Contribuições](#-contribuições)
-  - [Licença](#-licença)
+- [Sobre o projeto](#💻-sobre-o-projeto)
+  - [Funcionalidades](#⚙️-funcionalidades)
+  - [Layout](#🎨-layout)
+  - [Como executar o projeto](#🚀-como-executar-o-projeto)
+  - [Tecnologias](#🛠-tecnologias)
+  - [Contribuir como o projeto](#📫-contribuindo-para-project-ima-pay)
+  - [Colaboradores](#🤝-colaboradores)
+  - [Licença](#📝-licença)
   <!--te-->
 
 ---
@@ -213,4 +214,4 @@ By S#harnonymous
 
 <br />
 
-<p align="right">(<a href="#readme-top">⬆ Voltar ao topo</a>)</p>
+<p>(<a href="#readme-top">⬆ Voltar ao topo</a>)</p>

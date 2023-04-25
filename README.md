@@ -1,13 +1,14 @@
 <a name="readme-top"></a>
 
-
 <h2 align="center">🚧🚀 Em desenvolvimento</h2>
 
 <br />
 
 ## 💻 Sobre o projeto
 
-💪 Imã Pay - [Descrição].
+💪 Bem-vindo ao Imã Pay!
+
+A Imã Pay foi criada em abril de 2023, inspirada na Imã Tech e sob orientação do Prof. Hugo Rafael. Promete revolucionar o mercado financeiro por ser um banco inovador que compete com os atuais grandes bancos, oferecendo novas propostas de negociação, taxas competitivas e retornos adequados à realidade de cada cliente. Nosso objetivo é transformar a experiência do usuário com mais comodidade, rapidez e praticidade em todas as etapas, desde a criação da conta até as transações diárias.
 
 <!--ts-->
 
@@ -15,7 +16,6 @@
   - [Funcionalidades](#%EF%B8%8F-funcionalidades)
   - [Layout](#-layout)
   - [Como executar o projeto](#-como-executar-o-projeto)
-  - [Rodando a aplicação](#-rodando-a-aplicação)
   - [Tecnologias](#-tecnologias)
   - [Contribuições](#-contribuições)
   - [Licença](#-licença)
@@ -29,7 +29,19 @@
 
 ```
 
-[Texto aqui]
+Cadastro de Usuário: Nosso processo de cadastro é simples e intuitivo. Ao acessar a página, o cliente preencherá cada etapa e confirmará a cada nova entrada de dados. Seus dados serão protegidos de acordo com os termos de uso aceitos.
+
+Login: Nosso processo de login é rápido e responsivo. Após o cadastro, o cliente poderá utilizar seu CPF e senha ou e-mail e senha, conforme sua escolha no ato do cadastro.
+
+Transferência: Para efetuar uma transferência bancária, serão solicitados ao cliente os dados do destinatário e a senha de confirmação previamente cadastrada. Essa transferência pode ser opcional em TED, DOC ou PIX.
+
+Histórico de transações: Nosso histórico de transações mostrará ao usuário a data e hora da transação, os valores acordados e as informações do destinatário. É detalhado o suficiente para o usuário verificar e guardar para referência futura ou simples confirmação.
+
+Obrigado por escolher o Imã Pay. Estamos entusiasmados por ser sua solução bancária inovadora e competitiva.
+
+👷🏻 Em construção:
+
+API em C# com os endpoints de cadastro, login, dados do cliente, transferências e histórico de transações.
 
 ```
 
@@ -39,13 +51,16 @@
 
 ## 🎨 Layout
 
-O layout da aplicação está disponível no Netlify:
+O layout da aplicação:
 
-```
+<p align="center">
+  
+  <img alt="Layout Home e login" src=".github/previewHome.png" width="90%">
+  <img alt="Layout de cadastro" src=".github/previewCadas.png" width="90%">
+  <img alt="Área de transferências" src=".github/previewTransfer.png" width="90%">
+  <img alt="Modal boas vindas" src=".github/previewModal.png" width="90%">
 
-[Imagens do projeto]
-
-```
+</p>
 
 ---
 
@@ -58,20 +73,11 @@ Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
-```
-Digite no terminal: npm i
-```
-
----
-
-<br />
-
-## 🧭 Rodando a aplicação
 
 ```
-
-[Descrição aqui]
-
+Depois de baixar o projeto e abrir no gitbash ou no terminal do VSCode, digite: npm i (para instalações da dependências).
+Em seguida, digite: npm run dev (para rodar o projeto) e por fim digite:
+npx json-server server.json -p 3333 -w -d 500 (para rodar o servidor server.json)
 ```
 
 ---
@@ -82,6 +88,32 @@ Digite no terminal: npm i
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+```
+. HTML
+. CSS
+. C#
+. JavaScript
+. ReactJS
+. TypeScript
+
+Bibliotecas do Front-end:
+
+. npm i styled-components
+. npm i @types/styled-components -D
+. npm i json-server -D
+. npm i @radix-ui/react-dialog
+. npm i @radix-ui/react-radio-group
+. npm i react-router-dom
+. npm i phosphor-react
+. npm i react-hook-form
+. npm i @hookform/resolvers
+. npm i zod
+. npm i axios
+. npm i use-context-selector scheduler
+. npm i polished
+
+```
+
 ---
 
 <br />
@@ -89,6 +121,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 📫 Contribuindo para project-ima-pay
 
 <!---separado--->
+
 Para contribuir com project-ima-pay, siga estas etapas:
 
 1. Bifurque (Fork) este repositório.
@@ -96,7 +129,6 @@ Para contribuir com project-ima-pay, siga estas etapas:
 3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
 4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
 5. Crie a solicitação de pull.
-
 
 Consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
@@ -111,58 +143,58 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/denilsonbezerra">
         <img src="https://avatars.githubusercontent.com/u/97971798?v=4" width="100px;" alt="Foto do Denilson Bezerra no GitHub"/><br>
         <sub>
-          <b>Denilson Bezerra</b>
+          <b>Denilson</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/IsabelaSchadt">
         <img src="https://avatars.githubusercontent.com/u/116990892?v=4" width="100px;" alt="Foto da Isabela Schadt no GitHub"/><br>
         <sub>
-          <b>Isabela Schadt</b>
+          <b>Isabela</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/LuciaSantos81">
         <img src="https://avatars.githubusercontent.com/u/113800812?v=4" width="100px;" alt="Foto da Lúcia Maria no GitHub"/><br>
         <sub>
-          <b>Lúcia Maria</b>
+          <b>Lúcia</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/MatheusHenrique95">
         <img src="https://avatars.githubusercontent.com/u/115824012?v=4" width="100px;" alt="Foto do Matheus Henrique no GitHub"/><br>
         <sub>
-          <b>Matheus Henrique</b>
+          <b>Matheus</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/MOISANX">
         <img src="https://avatars.githubusercontent.com/u/72143562?v=4" width="100px;" alt="Foto do Moises Santos no GitHub"/><br>
         <sub>
-          <b>Moises Santos</b>
+          <b>Moises</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/RafaelSantos22">
         <img src="https://avatars.githubusercontent.com/u/98282656?v=4" width="100px;" alt="Foto do Rafael Santos no GitHub"/><br>
         <sub>
-          <b>Rafael Santos</b>
+          <b>Rafael</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/RafaeltiMoreira">
         <img src="https://avatars.githubusercontent.com/u/52933778?v=4" width="100px;" alt="Foto do Rafael Moreira no GitHub"/><br>
         <sub>
-          <b>Rafael Moreira</b>
+          <b>Rafael</b>
         </sub>
       </a>
     </td>

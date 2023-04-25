@@ -28,8 +28,6 @@ A Imã Pay foi criada em abril de 2023, inspirada na Imã Tech e sob orientaçã
 
 ## ⚙️ Funcionalidades
 
-```
-
 Cadastro de Usuário: Nosso processo de cadastro é simples e intuitivo. Ao acessar a página, o cliente preencherá cada etapa e confirmará a cada nova entrada de dados. Seus dados serão protegidos de acordo com os termos de uso aceitos.
 
 Login: Nosso processo de login é rápido e responsivo. Após o cadastro, o cliente poderá utilizar seu CPF e senha ou e-mail e senha, conforme sua escolha no ato do cadastro.
@@ -43,8 +41,6 @@ Obrigado por escolher o Imã Pay. Estamos entusiasmados por ser sua solução ba
 👷🏻 Em construção:
 
 API em C# com os endpoints de cadastro, login, dados do cliente, transferências e histórico de transações.
-
-```
 
 ---
 

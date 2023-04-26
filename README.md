@@ -4,7 +4,7 @@
 
 <br />
 
-## 💻 Sobre o projeto
+## Sobre o projeto 💻
 
 💪 Bem-vindo ao Imã Pay!
 
@@ -12,21 +12,21 @@ A Imã Pay foi criada em abril de 2023, inspirada na Imã Tech e sob orientaçã
 
 <!--ts-->
 
-- [Sobre o projeto](#💻-sobre-o-projeto)
-  - [Funcionalidades](#⚙️-funcionalidades)
-  - [Layout](#🎨-layout)
-  - [Como executar o projeto](#🚀-como-executar-o-projeto)
-  - [Tecnologias](#🛠-tecnologias)
-  - [Contribuir como o projeto](#📫-contribuindo-para-project-ima-pay)
-  - [Colaboradores](#🤝-colaboradores)
-  - [Licença](#📝-licença)
+- [Sobre o projeto](#sobre-o-projeto-💻)
+  - [Funcionalidades](#funcionalidades-⚙️)
+  - [Layout](#layout-🎨)
+  - [Como executar o projeto](#como-executar-o-projeto-🚀)
+  - [Tecnologias](#tecnologias-🛠)
+  - [Contribuir como o projeto](#contribuindo-para-project-ima-pay-📫)
+  - [Colaboradores](#colaboradores-🤝)
+  - [Licença](#licença-📝)
   <!--te-->
 
 ---
 
 <br />
 
-## ⚙️ Funcionalidades
+## Funcionalidades ⚙️
 
 Cadastro de Usuário: Nosso processo de cadastro é simples e intuitivo. Ao acessar a página, o cliente preencherá cada etapa e confirmará a cada nova entrada de dados. Seus dados serão protegidos de acordo com os termos de uso aceitos.
 
@@ -42,11 +42,26 @@ Obrigado por escolher o Imã Pay. Estamos entusiasmados por ser sua solução ba
 
 API em C# com os endpoints de cadastro, login, dados do cliente, transferências e histórico de transações.
 
+```bash
+# Para simular o cadastro de cliente, utilize os dados abaixo:
+
+Nome: "Luana"
+E-mail: "luana@teste.com"
+Senha: "rafa158"
+Celular: "41 99916-1514"
+CPF: "157.526.142-23"
+
+# Para login, utilize:
+
+CPF: "157.526.142-23"
+Senha: "rafa158"
+```
+
 ---
 
 <br />
 
-## 🎨 Layout
+## Layout 🎨
 
 O layout da aplicação:
 
@@ -63,7 +78,7 @@ O layout da aplicação:
 
 <br />
 
-## 🚀 Como executar o projeto
+## Como executar o projeto 🚀
 
 Pré-requisitos
 
@@ -71,28 +86,42 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
 
-```
-Depois de baixar o projeto e abrir no gitbash ou no terminal do VSCode, digite: npm i (para instalações da dependências).
-Em seguida, digite: npm run dev (para rodar o projeto) e por fim digite:
-npx json-server server.json -p 3333 -w -d 500 (para rodar o servidor server.json)
+```bash
+Depois de baixar o projeto e abrir no gitbash ou no terminal do VSCode.
+
+# Navegue até o diretório
+$ cd frontend
+
+# Para instalações da dependências digite:
+$ npm i
+
+# Para rodar o projeto digite:
+$ npm run dev
+# No terminal será exibido o endereço local onde a aplicação está sendo executada. Basta digitar o mesmo endereço em seu navegador preferido ou selecionar a tecla CTRL + click do mouse.
+
+# Para executar o servidor
+$ npx json-server server.json -p 3333 -w -d 500 (para rodar o servidor server.json)
+
+# Para iniciar o servidor
+$ npm run dev:server
 ```
 
 ---
 
 <br />
 
-## 🛠 Tecnologias
+## Tecnologias 🛠
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-```
-. HTML
-. CSS
-. C#
-. JavaScript
-. ReactJS
-. TypeScript
+- HTML
+- CSS
+- C#
+- JavaScript
+- ReactJS
+- TypeScript
 
+```bash
 Bibliotecas do Front-end:
 
 . npm i styled-components
@@ -108,14 +137,13 @@ Bibliotecas do Front-end:
 . npm i axios
 . npm i use-context-selector scheduler
 . npm i polished
-
 ```
 
 ---
 
 <br />
 
-## 📫 Contribuindo para project-ima-pay
+## Contribuindo para project-ima-pay 📫
 
 <!---separado--->
 
@@ -133,7 +161,7 @@ Consulte a documentação do GitHub em [como criar uma solicitação pull](https
 
 <br />
 
-## 🤝 Colaboradores
+## Colaboradores 🤝
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
@@ -202,7 +230,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <br />
 
-## 📝 Licença
+## Licença 📝
 
 Esse projeto está sob licença [MIT](https://github.com/RafaeltiMoreira/sharnonymous-bank-ima/blob/main/LICENSE). Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
 
